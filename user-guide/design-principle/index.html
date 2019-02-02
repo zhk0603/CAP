@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Design principle - CAP</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">CAP</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/us/flat/16.png">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../api-interface/">API Interface</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design-principle.md.md">Design Principle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../implementation-mechanisms/">Implementation Mechanisms</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../distributed-transactions/">Distributed Transactions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/cn/flat/16.png">使用指南 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/getting-started/">快速开始</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/api-interface/">API 接口</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/configuration/">配置</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/design-principle/">设计原理</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/implementation-mechanisms/">实现</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/distributed-transactions/">分布式事务</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/design-principle.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#motivation">Motivation</a></li>
+        <li class="first-level "><a href="#persistence">Persistence</a></li>
+        <li class="first-level "><a href="#communication-data-streams">Communication Data Streams</a></li>
+        <li class="first-level "><a href="#consistency">Consistency</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h3 id="motivation">Motivation</h3>
+<p>With the popularity of microservices architecture, more and more people are trying to use microservices to architect their systems. In this we encounter problems such as distributed transactions. To solve these problems, I did not find simplicity and Easy to use solution, so I decided to create such a library to solve this problem.</p>
+<p>The original CAP was to solve the transaction problems in the distributed system. She used asynchronous to ensure that this weak consistency transaction mechanism achieved the eventual consistency of the distributed transaction. For more information, see section 6.</p>
+<p>Now in addition to solving distributed transaction problems, CAP's other important function is to use it as an EventBus. It has all of the features of EventBus and provides a more simplified way to handle publish/subscribe in EventBus.</p>
+<h3 id="persistence">Persistence</h3>
+<p>The CAP relies on the local database for persistence of messages. The CAP uses this method to deal with situations in which all messages are lost due to environmental or network anomalies. The reliability of messages is the cornerstone of distributed transactions, so messages cannot be lost under any circumstances.</p>
+<p>There are two types of persistence for messages:</p>
+<p><strong>1 Persistence before the message enters the message queue</strong></p>
+<p>Before the message enters the message queue, the CAP uses the local database table to persist the message. This ensures that the message is not lost when the message queue is abnormal or the network error occurs.</p>
+<p>In order to ensure the reliability of this mechanism, CAP uses database transactions with the same business code to ensure that business operations and CAP messages are strongly consistent throughout the persistence process. That is to say, in the process of message persistence, the database of any abnormal situation will be rolled back.</p>
+<p><strong>2 Persistence after messages enter the message queue</strong></p>
+<p>After the message enters the message queue, the CAP starts the persistence function of the message queue. We need to explain how the message of the CAP in RabbitMQ and Kafka is persistent.</p>
+<p>For message persistence in RabbitMQ, CAP uses a consumer queue with message persistence, but there may be exceptions to this and take part in 2.2.1.</p>
+<p>Since Kafka is inherently designed to persist messages using files, Kafka ensures that messages are correctly persisted without loss after the message enters Kafka.</p>
+<h3 id="communication-data-streams">Communication Data Streams</h3>
+<p>The flow of messages in the CAP is roughly as follows:</p>
+<p>&gt;2.2 version before</p>
+<p><img alt="" src="http://images2017.cnblogs.com/blog/250417/201708/250417-20170803174645928-1813351415.png" /></p>
+<blockquote>
+<p>"P" represents the sender of the message (producer). "C" stands for message consumer (subscriber).</p>
+</blockquote>
+<p><strong>After version 2.2</strong></p>
+<p>In the 2.2 and later versions, we adjusted the flow of some messages. We removed the Queue table in the database and used the memory queue instead. For details, see: <a href="https://github.com/dotnetcore/CAP/issues/96">Improve the implementation mechanism of queue mode</a></p>
+<h3 id="consistency">Consistency</h3>
+<p>The CAP uses the ultimate consistency as a consistent solution. This solution follows the CAP theory. The following is the description of the CAP theory.</p>
+<p>C (consistent) consistency refers to the atomicity of data. It is guaranteed by transactions in a classic database. When a transaction completes, the data will be in a consistent state regardless of success or rollback. In a distributed environment, consistency is Indicates whether the data of multiple nodes is consistent;</p>
+<p>A (availability) service is always available, when the user sends a request, the service can return the result within a certain time;</p>
+<p>P (Partition Tolerance) In distributed applications, the system may not operate due to some distributed reasons. The good partition tolerance makes the application a distributed system but it seems to be a functioning whole.</p>
+<p>According to <a href="https://en.wikipedia.org/wiki/CAP_theorem">"CAP" distributed theory</a>, in a distributed system, we often reluctantly give up strong consensus support for availability and partition fault tolerance, and instead pursue Ultimate consistency. In most business scenarios, we can accept short-term inconsistencies.</p>
+<p>Section 6 will introduce this further.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

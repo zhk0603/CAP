@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Getting Started - CAP</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">CAP</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/us/flat/16.png">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../api-interface/">API Interface</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design-principle.md.md">Design Principle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../implementation-mechanisms/">Implementation Mechanisms</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../distributed-transactions/">Distributed Transactions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/cn/flat/16.png">使用指南 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/getting-started/">快速开始</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/api-interface/">API 接口</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/configuration/">配置</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/design-principle/">设计原理</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/implementation-mechanisms/">实现</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/distributed-transactions/">分布式事务</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../..">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../api-interface/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/getting-started.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#introduction">Introduction</a></li>
+        <li class="first-level "><a href="#usage-scenarios">Usage Scenarios</a></li>
+        <li class="first-level "><a href="#quick-start">Quick Start</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h3 id="introduction">Introduction</h3>
+<p>CAP is a library based on .Net standard, which is a solution to deal with distributed transactions, also has the function of EventBus, it is lightweight, easy to use, and efficiently.</p>
+<h3 id="usage-scenarios">Usage Scenarios</h3>
+<p>The usage scenarios of CAP mainly include the following two:</p>
+<ul>
+<li>1.The scheme of eventual consistency in distributed transactions</li>
+</ul>
+<p>In the process of building an SOA or MicroService system, we usually need to use the event to integrate each services. In the process, the simple use of message queue does not guarantee the reliability. CAP is adopted the local message table program integrated with the current database to solve the exception may occur in the process of the distributed system calling each other. It can ensure that the event messages are not lost in any case.</p>
+<p>Distributed transactions are an inevitable requirement in a distributed system, and the current solution for distributed transactions is nothing more than just a few. Before understanding the CAP's distributed transaction scenarios, you can read the following [Articles] (http://www.infoq.com/en/articles/solution-of-distributed-system-transaction-consistency).</p>
+<p>The CAP does not use the two-phase commit (2PC) transaction mechanism, but uses the classical message implementation of the local message table + MQ, which is also called asynchronous guarantee.</p>
+<ul>
+<li>2.Highly usable EventBus</li>
+</ul>
+<p>You can also use the CAP as an EventBus. The CAP provides a simpler way to implement event publishing and subscriptions. You do not need to inherit or implement any interface during the process of subscription and sending.</p>
+<p>CAP implements the publish and subscribe method of EventBus, which has all the features of EventBus. This means that you can use CAPs just like EventBus. In addition, CAP's EventBus is highly available. What does this mean?</p>
+<p>The CAP uses the local message table to persist the messages in the EventBus. This ensures that the messages sent by the EventBus are reliable. When the message queue fails or fails, the messages are not lost.</p>
+<h3 id="quick-start">Quick Start</h3>
+<ul>
+<li><strong>Reference NuGet Package</strong></li>
+</ul>
+<p>Use the following command to reference the CAP NuGet package:</p>
+<pre><code>PM&gt; Install-Package DotNetCore.CAP
+</code></pre>
+
+<p>According to the different types of message queues used, different extension packages are introduced:</p>
+<pre><code>PM&gt; Install-Package DotNetCore.CAP.RabbitMQ
+PM&gt; Install-Package DotNetCore.CAP.Kafka
+</code></pre>
+
+<p>According to the different types of databases used, different extension packages are introduced:</p>
+<pre><code>PM&gt; Install-Package DotNetCore.CAP.SqlServer
+PM&gt; Install-Package DotNetCore.CAP.MySql
+PM&gt; Install-Package DotNetCore.CAP.PostgreSql
+PM&gt; Install-Package DotNetCore.CAP.MongoDB
+</code></pre>
+
+<ul>
+<li><strong>Startup Configuration</strong></li>
+</ul>
+<p>In an ASP.NET Core program, you can configure the services used by the CAP in the <code>Startup.cs</code> file <code>ConfigureServices()</code>:</p>
+<pre><code class="cs">public void ConfigureServices(IServiceCollection services)
+{
+    //......
+
+    services.AddDbContext&lt;AppDbContext&gt;(); //Options, If you are using EF as the ORM
+    services.AddSingleton&lt;IMongoClient&gt;(new MongoClient(&quot;&quot;)); //Options, If you are using MongoDB
+
+    services.AddCap(x =&gt;
+    {
+        // If you are using EF, you need to add the configuration：
+        x.UseEntityFramework&lt;AppDbContext&gt;(); //Options, Notice: You don't need to config x.UseSqlServer(&quot;&quot;&quot;) again! CAP can autodiscovery.
+
+        // If you are using Ado.Net, you need to add the configuration：
+        x.UseSqlServer(&quot;Your ConnectionStrings&quot;);
+        x.UseMySql(&quot;Your ConnectionStrings&quot;);
+        x.UsePostgreSql(&quot;Your ConnectionStrings&quot;);
+
+        // If you are using MongoDB, you need to add the configuration：
+        x.UseMongoDB(&quot;Your ConnectionStrings&quot;);  //MongoDB 4.0+ cluster
+
+        // If you are using RabbitMQ, you need to add the configuration：
+        x.UseRabbitMQ(&quot;localhost&quot;);
+
+        // If you are using Kafka, you need to add the configuration：
+        x.UseKafka(&quot;localhost&quot;);
+    });
+}
+</code></pre></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

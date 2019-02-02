@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Distributed Transactions - CAP</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">CAP</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/us/flat/16.png">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../api-interface/">API Interface</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design-principle.md.md">Design Principle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../implementation-mechanisms/">Implementation Mechanisms</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Distributed Transactions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/cn/flat/16.png">使用指南 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/getting-started/">快速开始</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/api-interface/">API 接口</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/configuration/">配置</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/design-principle/">设计原理</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/implementation-mechanisms/">实现</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/distributed-transactions/">分布式事务</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../implementation-mechanisms/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../faq/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/distributed-transactions.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#asynchronous-recovery-events">Asynchronous recovery events</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>For the processing of distributed transactions, this CAP library matches the "Asynchronous recovery events" scenario.</p>
+<h3 id="asynchronous-recovery-events">Asynchronous recovery events</h3>
+<p>As known as the name "native message table", this is a classic solution, originally from EBay, and referenced links about it are at the end of this section. This is also one of the most popular solutions in the business development. </p>
+<p>Compared to TCC or 2pc/3pc, this solution is the simplest one for distributed transactions, and is decentralized. In TCC or 2PC solutions, the common transaction handlers synchronize the state among different services with a transaction coordinator, but it's not much required in this CAP solution. In addition, the deeper references of other conditions these services have, the more management complexity and stability risk may be increased in 2PC/TCC. Imagine that if we have 9 services committed successfully of all 10 whitch relied heavily, though the last one execute fail, should we roll back transactions of those 9 service? In fact, the cost is still very high. </p>
+<p>However, it's not mean that 2PC or TCC are at a disadvantage, each has its own suitability and matched scenarios, here won't introduce more.</p>
+<blockquote>
+<p>cn： <a href="http://www.cnblogs.com/savorboard/p/base-an-acid-alternative.html">base-an-acid-alternative</a></p>
+<p>en： <a href="http://queue.acm.org/detail.cfm?id=1394128">Base: An Acid Alternative</a></p>
+</blockquote></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

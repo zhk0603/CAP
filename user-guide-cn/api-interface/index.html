@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>API 接口 - CAP</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">CAP</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/us/flat/16.png">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../user-guide/getting-started/">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/api-interface/">API Interface</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/design-principle.md.md">Design Principle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/implementation-mechanisms/">Implementation Mechanisms</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/distributed-transactions/">Distributed Transactions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/cn/flat/16.png">使用指南 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../getting-started/">快速开始</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">API 接口</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">配置</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design-principle/">设计原理</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../implementation-mechanisms/">实现</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../distributed-transactions/">分布式事务</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../getting-started/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../configuration/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide-cn/api-interface.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#_1">发布/发送</a></li>
+            <li class="second-level"><a href="#_2">消息补偿</a></li>
+                
+            <li class="second-level"><a href="#_3">事务</a></li>
+                
+        <li class="first-level "><a href="#_4">订阅/消费</a></li>
+            <li class="second-level"><a href="#_5">例外情况</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>CAP 的 API 接口只有一个，就是 <code>ICapPublisher</code> 接口，你可以从 DI 容器中获取到该接口的实例进行调用。</p>
+<h3 id="_1">发布/发送</h3>
+<p>你可以使用 <code>ICapPublisher</code> 接口中的 <code>Publish&lt;T&gt;</code> 或者 <code>PublishAsync&lt;T&gt;</code> 方法来发送消息：</p>
+<pre><code class="cs">public class PublishController : Controller
+{
+    private readonly ICapPublisher _capBus;
+
+    public PublishController(ICapPublisher capPublisher)
+    {
+        _capBus = capPublisher;
+    }
+
+    //不使用事务
+    [Route(&quot;~/without/transaction&quot;)]
+    public IActionResult WithoutTransaction()
+    {
+        _capBus.Publish(&quot;xxx.services.show.time&quot;, DateTime.Now);
+
+        return Ok();
+    }
+
+    //Ado.Net 中使用事务，自动提交
+    [Route(&quot;~/adonet/transaction&quot;)]
+    public IActionResult AdonetWithTransaction()
+    {
+        using (var connection = new MySqlConnection(ConnectionString))
+        {
+            using (var transaction = connection.BeginTransaction(_capBus, autoCommit: true))
+            {
+                //业务代码
+
+                _capBus.Publish(&quot;xxx.services.show.time&quot;, DateTime.Now);
+            }
+        }
+        return Ok();
+    }
+
+    //EntityFramework 中使用事务，自动提交
+    [Route(&quot;~/ef/transaction&quot;)]
+    public IActionResult EntityFrameworkWithTransaction([FromServices]AppDbContext dbContext)
+    {
+        using (var trans = dbContext.Database.BeginTransaction(_capBus, autoCommit: true))
+        {
+            //业务代码
+
+            _capBus.Publish(&quot;xxx.services.show.time&quot;, DateTime.Now);
+        }
+        return Ok();
+    }
+}
+
+</code></pre>
+
+<p>下面是PublishAsync这个接口的签名：</p>
+<p><strong><code>PublishAsync&lt;T&gt;(string name,T object)</code></strong></p>
+<p>默认情况下，在调用此方法的时候 CAP 将在内部创建事务，然后将消息写入到 <code>Cap.Published</code> 这个消息表。</p>
+<h4 id="_2">消息补偿</h4>
+<p>有时候当发送一条消息出去之后，希望有一个回调可以获得消费方法的通知，用来补偿发送方做的业务操作，那么可以使用下面这个重载。</p>
+<p><strong><code>PublishAsync&lt;T&gt;(string name,T object, string callBackName)</code></strong></p>
+<p>这个重载中 <code>callbackName</code> 是一个回调的订阅方法名称，当消费端处理完成消息之后CAP会把消费者的处理结果返回并且调用指定的订阅方法。</p>
+<blockquote>
+<p>在一些需要业务补偿的场景中，我们可以利用此特性进行一些还原的补偿操作。例如：电商系统中的付款操作，订单在进行支付调用支付服务的过程中如果发生异常，那么支付服务可以通过返回一个结果来告诉调用方此次业务失败，调用方将支付状态标记为失败。 调用方通过订阅 <code>callbackName</code>(订阅参数为消费方方法的返回值) 即可接收到支付服务消费者方法的返回结果，从而进行补偿的业务处理。</p>
+</blockquote>
+<p>下面是使用方法：</p>
+<pre><code class="C#">
+// 发送方
+_capBus.Publish(&quot;xxx.services.show.time&quot;,DaateTime.Now,&quot;callback-show-execute-time&quot;);
+
+[CapSubscribe(&quot;callback-show-execute-time&quot;)]   //对应发送的 callbackName
+public void ShowPublishTimeAndReturnExecuteTime(DateTime time)
+{
+    Console.WriteLine(time); // 这是订阅方返回的时间
+}
+
+//--------------------------------------------------------------------------------
+
+//订阅方
+[CapSubscribe(&quot;xxx.services.show.time&quot;)]
+public DateTime ShowPublishTimeAndReturnExecuteTime(DateTime time)
+{
+    Console.WriteLine(time); // 这是发送的时间
+
+    return DateTime.Now; // 这是消费者返回的时间，CAP会取该方法的返回值用来传递到发送方的回调订阅里面
+}
+
+</code></pre>
+
+<h4 id="_3">事务</h4>
+<p>事务在 CAP 具有重要作用，它是保证消息可靠性的一个基石。 在发送一条消息到消息队列的过程中，如果不使用事务，我们是没有办法保证我们的业务代码在执行成功后消息已经成功的发送到了消息队列，或者是消息成功的发送到了消息队列，但是业务代码确执行失败。</p>
+<p>这里的失败原因可能是多种多样的，比如连接异常，网络故障等等。</p>
+<p><em>只有业务代码和CAP的Publish代码必须在同一个事务中，才能够保证业务代码和消息代码同时成功或者失败。</em></p>
+<p>以下是两种使用事务进行Publish的代码：</p>
+<ul>
+<li>EntityFramework</li>
+</ul>
+<pre><code class="cs">using (var trans = dbContext.Database.BeginTransaction(_capBus, autoCommit: false)
+{
+    //业务代码
+
+    _capBus.Publish(&quot;xxx.services.show.time&quot;, DateTime.Now);
+
+    trans.Commit();
+}
+</code></pre>
+
+<p>在不使用自动提交的时候，你的业务代码可以位于 Publish 之前或者之后，只需要保证在同一个事务。 </p>
+<p>当使用自动提交时候，需要确保 <code>_capBus.Publish</code> 位于代码的最后。</p>
+<p>其中，发送的内容会序列化为Json存储到消息表中。</p>
+<ul>
+<li>Dapper</li>
+</ul>
+<pre><code class="cs">using (var connection = new MySqlConnection(ConnectionString))
+{
+    using (var transaction = connection.BeginTransaction(_capBus, autoCommit: false))
+    {
+        //your business code
+        connection.Execute(&quot;insert into test(name) values('test')&quot;, transaction: (IDbTransaction)transaction.DbTransaction);
+
+        _capBus.Publish(&quot;sample.rabbitmq.mysql&quot;, DateTime.Now);
+
+        transaction.Commit();
+    }
+}
+</code></pre>
+
+<h3 id="_4">订阅/消费</h3>
+<p><strong>注意：框架无法做到100%确保消息只执行一次，所以在一些关键场景消息端在方法实现的过程中自己保证幂等性。</strong></p>
+<p>使用 <code>CapSubscribeAttribute</code> 来订阅 CAP 发布出去的消息。</p>
+<pre><code>[CapSubscribe(&quot;xxx.services.bar&quot;)]
+public void BarMessageProcessor()
+{
+
+}
+
+</code></pre>
+
+<p>这里，你也可以使用多个 <code>CapSubscribe[""]</code> 来同时订阅多个不同的消息 :</p>
+<pre><code>[CapSubscribe(&quot;xxx.services.bar&quot;)]
+[CapSubscribe(&quot;xxx.services.foo&quot;)]
+public void BarAndFooMessageProcessor()
+{
+
+}
+
+</code></pre>
+
+<p>其中，<code>xxx.services.bar</code> 为订阅的消息名称，内部实现上，这个名称在不同的消息队列具有不同的代表。 在 Kafka 中，这个名称即为 Topic Name。 在RabbitMQ 中，为 RouteKey。</p>
+<blockquote>
+<p>RabbitMQ 中的 RouteKey 支持绑定键表达式写法，有两种主要的绑定键：</p>
+<p>*（星号）可以代替一个单词.</p>
+<p># (井号) 可以代替0个或多个单词.</p>
+<p>比如在下面这个图中(P为发送者，X为RabbitMQ中的Exchange，C为消费者，Q为队列)</p>
+<p><img alt="" src="http://images2017.cnblogs.com/blog/250417/201708/250417-20170807093230268-283915002.png" /></p>
+<p>在这个示例中，我们将发送一条关于动物描述的消息，也就是说 Name(routeKey) 字段中的内容包含 3 个单词。第一个单词是描述速度的（celerity），第二个单词是描述颜色的（colour），第三个是描述哪种动物的（species），它们组合起来类似：“<celerity>.<colour>.<species>”。</p>
+<p>然后在使用 <code>CapSubscribe</code> 绑定的时候，Q1绑定为 <code>CapSubscribe["*.orange.*"]</code>, Q2 绑定为  <code>CapSubscribe["*.*.rabbit"]</code> 和 <code>[CapSubscribe["lazy.#]</code>。</p>
+<p>那么，当发送一个名为 "quick.orange.rabbit" 消息的时候，这两个队列将会同时收到该消息。同样名为 <code>lazy.orange.elephant</code>的消息也会被同时收到。另外，名为 "quick.orange.fox" 的消息将仅会被发送到Q1队列，名为 "lazy.brown.fox" 的消息仅会被发送到Q2。"lazy.pink.rabbit" 仅会被发送到Q2一次，即使它被绑定了2次。"quick.brown.fox" 没有匹配到任何绑定的队列，所以它将会被丢弃。</p>
+<p>另外一种情况，如果你违反约定，比如使用 4个单词进行组合，例如 "quick.orange.male.rabbit"，那么它将匹配不到任何的队列，消息将会被丢弃。</p>
+<p>但是，假如你的消息名为 "lazy.orange.male.rabbit"，那么他们将会被发送到Q2，因为 #（井号）可以匹配 0 或者多个单词。</p>
+</blockquote>
+<p>在 CAP 中，我们把每一个拥有 <code>CapSubscribe[]</code>标记的方法叫做<strong>订阅者</strong>，你可以把订阅者进行分组。</p>
+<p><strong>组(Group)</strong>，是订阅者的一个集合，每一组可以有一个或者多个消费者，但是一个订阅者只能属于某一个组。同一个组内的订阅者订阅的消息只能被消费一次。</p>
+<p>如果你在订阅的时候没有指定组，CAP会将订阅者设置到一个默认的组，默认的组名称为 <code>cap.queue.{程序集名称}</code>。</p>
+<p>以下是使用组进行订阅的示例：</p>
+<pre><code class="cs">[CapSubscribe(&quot;xxx.services.foo&quot;, Group = &quot;moduleA&quot;)]
+public void FooMessageProcessor()
+{
+
+}
+
+</code></pre>
+
+<h4 id="_5">例外情况</h4>
+<p>这里有几种情况可能需要知道：</p>
+<p><strong>① 消息发布的时候订阅方还未启动</strong></p>
+<p>Kafka:</p>
+<p>当 Kafka 中，发布的消息存储于持久化的日志文件中，所以消息不会丢失，当订阅者所在的程序启动的时候会消费掉这些消息。</p>
+<p>RabbitMQ：</p>
+<p>在 RabbitMQ 中，应用程序<strong>首次启动</strong>会创建具有持久化的 Exchange 和 Queue，CAP 会针对每一个订阅者Group会新建一个消费者队列，<strong>由于首次启动时候订阅者未启动的所以是没有队列的，消息无法进行持久化，这个时候生产者发的消息会丢失</strong>。</p>
+<p>针对RabbitMQ的消息丢失的问题，有两种解决方式：</p>
+<p>i. 部署应用程序之前，在RabbitMQ中手动创建具有durable特性的Exchange和Queue，默认情况他们的名字分别是(cap.default.topic, cap.default.group)。</p>
+<p>ii. 提前运行一遍所有实例，让Exchange和Queue初始化。</p>
+<p>我们建议采用第 ii 种方案，因为很容易做到。</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

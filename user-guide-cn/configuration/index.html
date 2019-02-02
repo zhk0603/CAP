@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>配置 - CAP</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">CAP</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/us/flat/16.png">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../user-guide/getting-started/">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/api-interface/">API Interface</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/design-principle.md.md">Design Principle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/implementation-mechanisms/">Implementation Mechanisms</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/distributed-transactions/">Distributed Transactions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/cn/flat/16.png">使用指南 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../getting-started/">快速开始</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../api-interface/">API 接口</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">配置</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design-principle/">设计原理</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../implementation-mechanisms/">实现</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../distributed-transactions/">分布式事务</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../api-interface/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../design-principle/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide-cn/configuration.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#cap-options">Cap Options</a></li>
+        <li class="first-level "><a href="#rabbitmq-options">RabbitMQ Options</a></li>
+        <li class="first-level "><a href="#kafka-options">Kafka Options</a></li>
+        <li class="first-level "><a href="#entityframework-options">EntityFramework Options</a></li>
+        <li class="first-level "><a href="#sqlserver-options">SqlServer Options</a></li>
+        <li class="first-level "><a href="#mysql-options">MySql Options</a></li>
+        <li class="first-level "><a href="#postgresql-options">PostgreSql Options</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>CAP 使用 Microsoft.Extensions.DependencyInjection 进行配置的注入，你也可以依赖于 DI 从json文件中读取配置。</p>
+<h3 id="cap-options">Cap Options</h3>
+<p>你可以使用如下方式来配置 CAP 中的一些配置项，例如</p>
+<pre><code class="cs">services.AddCap(capOptions =&gt; {
+    capOptions.FailedCallback = //...
+});
+
+</code></pre>
+
+<p><code>CapOptions</code>  提供了以下配置项：</p>
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th>TYPE</th>
+<th align="left">DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DefaultGroup</td>
+<td align="left">订阅者所属的默认消费者组</td>
+<td>string</td>
+<td align="left">cap.queue+程序集名称</td>
+</tr>
+<tr>
+<td align="left">SuccessedMessageExpiredAfter</td>
+<td align="left">成功的消息被删除的过期时间</td>
+<td>int</td>
+<td align="left">3600 秒</td>
+</tr>
+<tr>
+<td align="left">FailedCallback</td>
+<td align="left">执行失败消息时的回调函数，详情见下文</td>
+<td>Action</td>
+<td align="left">NULL</td>
+</tr>
+<tr>
+<td align="left">FailedRetryInterval</td>
+<td align="left">失败重试间隔时间</td>
+<td>int</td>
+<td align="left">60 秒</td>
+</tr>
+<tr>
+<td align="left">FailedRetryCount</td>
+<td align="left">失败最大重试次数</td>
+<td>int</td>
+<td align="left">50 次</td>
+</tr>
+</tbody>
+</table>
+<p>CapOptions 提供了 <code>FailedCallback</code> 为处理失败的消息时的回调函数。当消息多次发送失败后，CAP会将消息状态标记为<code>Failed</code>，CAP有一个专门的处理者用来处理这种失败的消息，针对失败的消息会重新放入到队列中发送到MQ，在这之前如果<code>FailedCallback</code>具有值，那么将首先调用此回调函数来告诉客户端。</p>
+<p>FailedCallback 的类型为 <code>Action&lt;MessageType,string,string&gt;</code>，第一个参数为消息类型（发送的还是接收的），第二个参数为消息的名称（name），第三个参数为消息的内容（content）。</p>
+<h3 id="rabbitmq-options">RabbitMQ Options</h3>
+<p>CAP 采用的是针对 CapOptions 进行扩展来实现RabbitMQ的配置功能，所以针对 RabbitMQ 的配置用法如下：</p>
+<pre><code class="cs">services.AddCap(capOptions =&gt; {
+    capOptions.UseRabbitMQ(rabbitMQOption=&gt;{
+        // rabbitmq options.
+    });
+});
+</code></pre>
+
+<p><code>RabbitMQOptions</code> 提供了有关RabbitMQ相关的配置：</p>
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th>TYPE</th>
+<th align="left">DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">HostName</td>
+<td align="left">宿主地址</td>
+<td>string</td>
+<td align="left">localhost</td>
+</tr>
+<tr>
+<td align="left">UserName</td>
+<td align="left">用户名</td>
+<td>string</td>
+<td align="left">guest</td>
+</tr>
+<tr>
+<td align="left">Password</td>
+<td align="left">密码</td>
+<td>string</td>
+<td align="left">guest</td>
+</tr>
+<tr>
+<td align="left">VirtualHost</td>
+<td align="left">虚拟主机</td>
+<td>string</td>
+<td align="left">/</td>
+</tr>
+<tr>
+<td align="left">Port</td>
+<td align="left">端口号</td>
+<td>int</td>
+<td align="left">-1</td>
+</tr>
+<tr>
+<td align="left">TopicExchangeName</td>
+<td align="left">CAP默认Exchange名称</td>
+<td>string</td>
+<td align="left">cap.default.topic</td>
+</tr>
+<tr>
+<td align="left">RequestedConnectionTimeout</td>
+<td align="left">RabbitMQ连接超时时间</td>
+<td>int</td>
+<td align="left">30,000 毫秒</td>
+</tr>
+<tr>
+<td align="left">SocketReadTimeout</td>
+<td align="left">RabbitMQ消息读取超时时间</td>
+<td>int</td>
+<td align="left">30,000 毫秒</td>
+</tr>
+<tr>
+<td align="left">SocketWriteTimeout</td>
+<td align="left">RabbitMQ消息写入超时时间</td>
+<td>int</td>
+<td align="left">30,000 毫秒</td>
+</tr>
+<tr>
+<td align="left">QueueMessageExpires</td>
+<td align="left">队列中消息自动删除时间</td>
+<td>int</td>
+<td align="left">(10天) 毫秒</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kafka-options">Kafka Options</h3>
+<p>CAP 采用的是针对 CapOptions 进行扩展来实现 Kafka 的配置功能，所以针对 Kafka 的配置用法如下：</p>
+<pre><code class="cs">services.AddCap(capOptions =&gt; {
+    capOptions.UseKafka(kafkaOption=&gt;{
+        // kafka options.
+        // kafkaOptions.MainConfig.Add(&quot;&quot;, &quot;&quot;);
+    });
+});
+</code></pre>
+
+<p><code>KafkaOptions</code> 提供了有关 Kafka 相关的配置，由于Kafka的配置比较多，所以此处使用的是提供的 MainConfig 字典来支持进行自定义配置，你可以查看这里来获取对配置项的支持信息。</p>
+<p><a href="https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md">https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md</a></p>
+<h3 id="entityframework-options">EntityFramework Options</h3>
+<p>如果使用的 Entityframework 来作为消息持久化存储的话，那么你可以在配置 CAP EntityFramework 配置项的时候来自定义一些配置。</p>
+<pre><code class="cs">services.AddCap(x =&gt;
+{
+    x.UseEntityFramework&lt;AppDbContext&gt;(efOption =&gt; 
+    {
+        // entityframework options.
+    });
+});
+
+</code></pre>
+
+<p>注意，如果你使用了 <code>UseEntityFramework</code> 的配置项，那么你不需要再次配置下面的章节几个针对不同数据库的配置，CAP 将会自动读取 DbContext 中使用的数据库相关配置信息。</p>
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th>TYPE</th>
+<th align="left">DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Schema</td>
+<td align="left">Cap表架构</td>
+<td>string</td>
+<td align="left">Cap  (SQL Server)</td>
+</tr>
+<tr>
+<td align="left">Schema</td>
+<td align="left">Cap表架构</td>
+<td>string</td>
+<td align="left">cap (PostgreSql)</td>
+</tr>
+<tr>
+<td align="left">TableNamePrefix</td>
+<td align="left">Cap表前缀</td>
+<td>string</td>
+<td align="left">cap (MySql)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sqlserver-options">SqlServer Options</h3>
+<p>注意，如果你使用的是 EntityFramewrok，你用不到此配置项。</p>
+<p>CAP 采用的是针对 CapOptions 进行扩展来实现 SqlServer 的配置功能，所以针对 SqlServer 的配置用法如下：</p>
+<pre><code class="cs">services.AddCap(capOptions =&gt; {
+    capOptions.UseSqlServer(sqlserverOptions =&gt; {
+       // sqlserverOptions.ConnectionString
+    });
+});
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th>TYPE</th>
+<th align="left">DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Schema</td>
+<td align="left">Cap表架构</td>
+<td>string</td>
+<td align="left">Cap</td>
+</tr>
+<tr>
+<td align="left">ConnectionString</td>
+<td align="left">数据库连接字符串</td>
+<td>string</td>
+<td align="left">null</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mysql-options">MySql Options</h3>
+<p>注意，如果你使用的是 EntityFramewrok，你用不到此配置项。</p>
+<p>CAP 采用的是针对 CapOptions 进行扩展来实现 MySql 的配置功能，所以针对 MySql 的配置用法如下：</p>
+<pre><code class="cs">services.AddCap(capOptions =&gt; {
+    capOptions.UseMySql(mysqlOptions =&gt; {
+       // mysqlOptions.ConnectionString
+    });
+});
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th>TYPE</th>
+<th align="left">DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TableNamePrefix</td>
+<td align="left">Cap表名前缀</td>
+<td>string</td>
+<td align="left">cap</td>
+</tr>
+<tr>
+<td align="left">ConnectionString</td>
+<td align="left">数据库连接字符串</td>
+<td>string</td>
+<td align="left">null</td>
+</tr>
+</tbody>
+</table>
+<h3 id="postgresql-options">PostgreSql Options</h3>
+<p>注意，如果你使用的是 EntityFramewrok，你用不到此配置项。</p>
+<p>CAP 采用的是针对 CapOptions 进行扩展来实现 PostgreSql 的配置功能，所以针对 PostgreSql 的配置用法如下：</p>
+<pre><code class="cs">services.AddCap(capOptions =&gt; {
+    capOptions.UsePostgreSql(postgreOptions =&gt; {
+       // postgreOptions.ConnectionString
+    });
+});
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th>TYPE</th>
+<th align="left">DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Schema</td>
+<td align="left">Cap表名前缀</td>
+<td>string</td>
+<td align="left">cap</td>
+</tr>
+<tr>
+<td align="left">ConnectionString</td>
+<td align="left">数据库连接字符串</td>
+<td>string</td>
+<td align="left">null</td>
+</tr>
+</tbody>
+</table></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

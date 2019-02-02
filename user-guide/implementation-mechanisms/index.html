@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Implementation Mechanisms - CAP</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">CAP</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/us/flat/16.png">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../api-interface/">API Interface</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../design-principle.md.md">Design Principle</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Implementation Mechanisms</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../distributed-transactions/">Distributed Transactions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://www.countryflags.io/cn/flat/16.png">使用指南 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/getting-started/">快速开始</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/api-interface/">API 接口</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/configuration/">配置</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/design-principle/">设计原理</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/implementation-mechanisms/">实现</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/distributed-transactions/">分布式事务</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../user-guide-cn/faq/">FAQ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about/">About</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../configuration/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../distributed-transactions/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/implementation-mechanisms.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#message-table">Message Table</a></li>
+        <li class="first-level "><a href="#message-format5">Message format5</a></li>
+        <li class="first-level "><a href="#eventbus">EventBus</a></li>
+        <li class="first-level "><a href="#retry">Retry</a></li>
+        <li class="first-level "><a href="#data-clean-out">Data clean out</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>Users can get a ICapPublisher interface from the ASP.NET Core DI container to publish a message .It is initialized by  configurations in the <code>ConfigureServices</code> and <code>configure</code> method in the Startup.cs file,just like the way to initialize a <code>MiddleWare</code> in ASP.NET Core.</p>
+<h3 id="message-table">Message Table</h3>
+<p>After initialized, CAP will create two tables in the client side,they are <code>Cap.Published</code> and <code>Cap.Received</code>. Please noted that different databases may deal letter case differently,if you do not explicitly specify the Schema or the TableName Prefix before project startup,the default names are the ones mentioned above.</p>
+<p><strong>Cap.Published</strong>：Used to store  messages(Published by the <code>ICapPublisher</code> service) that CAP published to the MQ(Message Queue)Client side</p>
+<p><strong>Cap.Received</strong>:Used to Store messages(subscribed by the <code>CapSubscribe[]</code>) subscribed by the MQ(message Queue) client side that CAP received.</p>
+<blockquote>
+<p>Before version 2.2 ：
+ <strong>Cap.Queue</strong>：A temporary table that CAP used to deal with published and received messages,under most circumstances(there aren't any errors),it is an empty table.</p>
+</blockquote>
+<p>Both <code>Published</code> and <code>Received</code> tables have a <code>StatusName</code> field,which is used to mark the status of the current message.Until now it has <code>Scheduled</code>，<code>Successed</code> and <code>Failed</code> statuses.</p>
+<blockquote>
+<p>Statuses before version 2.2：<code>Scheduled</code>，<code>Enqueued</code>，<code>Processing</code>，<code>Successed</code> and <code>Failed</code>.</p>
+</blockquote>
+<p>In the process of dealing with messages,CAP will change the status from <code>Scheduled</code> to <code>Successed</code>(or <code>Failed</code> ).if the final status is <code>Successed</code>,it means that the message is sent to MQ successfully,and <code>Failed</code> means the message is failed to sent to MQ.</p>
+<p>Version later than 2.2,  CAP will retry after 4 minutes if the status is <code>Scheduled</code> or <code>Failed</code>,the retry interval is default to 60 seconds.You can change it by modify <code>FailedRetryInterval</code> in <code>CapOptions</code>.</p>
+<blockquote>
+<p>Before version 2.2,CAP retry  100 times for <code>Failed</code> messages by default.</p>
+</blockquote>
+<h3 id="message-format5">Message format5</h3>
+<p>CAP use JSON to transfer message,the following is CAP's messaging object model:</p>
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th align="left">TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Id</td>
+<td align="left">Message Id</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">Version</td>
+<td align="left">Message Version</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">Name</td>
+<td align="left">Name</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">Content</td>
+<td align="left">Content</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">Group</td>
+<td align="left">Group a message belongs to</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">Added</td>
+<td align="left">add time</td>
+<td align="left">DateTime</td>
+</tr>
+<tr>
+<td align="left">ExpiresAt</td>
+<td align="left">expire time</td>
+<td align="left">DateTime</td>
+</tr>
+<tr>
+<td align="left">Retries</td>
+<td align="left">retry times</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">StatusName</td>
+<td align="left">Status Name</td>
+<td align="left">string</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>for <code>Cap.Received</code>,there is an extra <code>Group</code> filed to mark which group the mesage belongs to.</p>
+<p>for the <code>Content</code> property CAP will use a Messsage object to wrap all the contents.The following shows details of the Message Object:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">NAME</th>
+<th align="left">DESCRIPTION</th>
+<th align="left">TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Id</td>
+<td align="left">Generated by CAP</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">Timestamp</td>
+<td align="left">message create time</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">Content</td>
+<td align="left">content</td>
+<td align="left">string</td>
+</tr>
+<tr>
+<td align="left">CallbackName</td>
+<td align="left">the subscriber which is used to call back</td>
+<td align="left">string</td>
+</tr>
+</tbody>
+</table>
+<p>CAP use the same algorithms as MongoDB ObjectId's distributed Id  generation algorithms.</p>
+<h3 id="eventbus">EventBus</h3>
+<p>EventBus adopt the publish-subscribe messaging style to communicate with different components,and there is no need to register it in component explicitly.</p>
+<p><img alt="" src="http://images2017.cnblogs.com/blog/250417/201708/250417-20170804153901240-1774287236.png" /></p>
+<p>the diagram in the above link shows Eventbus's event flowchart,about EventBus,users can refer to other meterials to learn about it.</p>
+<p>We say that CAP implement all the features in Eventbus,EventBus has two features:publish and subscribe,In CAP we implement them in an elegant way.Besides,CAP also has two very robust feature,they are message persistence and messaging reliability under any circumstances,But EventBus don't have such features.</p>
+<p><img alt="" src="https://camo.githubusercontent.com/452505edb71d41f2c1bd18907275b76291621e46/687474703a2f2f696d61676573323031352e636e626c6f67732e636f6d2f626c6f672f3235303431372f3230313730372f3235303431372d32303137303730353137353832373132382d313230333239313436392e706e67" /></p>
+<p>In CAP,send a message can be regarded as an "Event",When CAP is used in an ASP.NET Core applicaiton,the application has the ablity to publish as well as receive messages.</p>
+<h3 id="retry">Retry</h3>
+<p>Retry plays a very important role in CAP's infrastructure,CAP will retry for Failed messages.CAP has the following retry  strategies:</p>
+<p><strong>1、 Retry on sending</strong></p>
+<p>in the process of sending a message,when the Broker crashed or connection failed or exceptions are thrown,CAP will retry,it will retry 3 times for the first time,if still failed,then it will retry every 1 minute,the retry the retry count +1,when the retry count come to 50,CAP will not retry any more.</p>
+<blockquote>
+<p>You can modify <code>FailedRetryCount</code> in <code>CapOptions</code> to change the default retry count.</p>
+</blockquote>
+<p>As metioned above,when the retry count comes to a certain number,CAP will not retry anymore,this time,you can find out the fail reason in the Dashboard and they deal with it manually.</p>
+<p><strong>2、 Retry on Consuming</strong></p>
+<p>When consumer received messages,specified method in the consumer will be executed,if exceptions are thrown during this course,CAP will retry,the retry  strategy is the same as above <code>Retry on sending</code>.</p>
+<h3 id="data-clean-out">Data clean out</h3>
+<p>table to store messages in database has an <code>ExpiresAt</code> field to mark the expiration time of the message. CAP will set <code>ExpiresAt</code> value as <strong>1 hour</strong> for  <code>Successed</code> messages and <strong>15days</strong> for <code>Failed</code> messages.</p>
+<p>To avoid performance slow down caused by a large amount of data,CAP will delete expired data every hour by default,the deletion rule is that <code>ExpiresAt</code> field's value isn't null and samller than current time.That is, <code>Failed</code> messages(it has been retried  50 times by default),if you do not deal with it manually,will also be deleted after 15 days as well,you have to pay attention to it.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
