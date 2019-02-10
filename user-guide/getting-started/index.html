@@ -97,7 +97,7 @@
                         
                             
 <li >
-    <a href="../design-principle.md.md">Design Principle</a>
+    <a href="../design-principle/">Design Principle</a>
 </li>
 
                         
@@ -212,51 +212,63 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#introduction">Introduction</a></li>
-        <li class="first-level "><a href="#usage-scenarios">Usage Scenarios</a></li>
-        <li class="first-level "><a href="#quick-start">Quick Start</a></li>
+            <li class="second-level"><a href="#usage-scenarios">Usage Scenarios</a></li>
+                
+            <li class="second-level"><a href="#quick-start">Quick Start</a></li>
+                
+                <li class="third-level"><a href="#nuget-package">NuGet Package</a></li>
+                <li class="third-level"><a href="#startup-configuration">Startup Configuration</a></li>
+                <li class="third-level"><a href="#usage">Usage</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h3 id="introduction">Introduction</h3>
+<h1 id="introduction">Introduction</h1>
 <p>CAP is a library based on .Net standard, which is a solution to deal with distributed transactions, also has the function of EventBus, it is lightweight, easy to use, and efficiently.</p>
-<h3 id="usage-scenarios">Usage Scenarios</h3>
+<h2 id="usage-scenarios">Usage Scenarios</h2>
 <p>The usage scenarios of CAP mainly include the following two:</p>
-<ul>
-<li>1.The scheme of eventual consistency in distributed transactions</li>
-</ul>
-<p>In the process of building an SOA or MicroService system, we usually need to use the event to integrate each services. In the process, the simple use of message queue does not guarantee the reliability. CAP is adopted the local message table program integrated with the current database to solve the exception may occur in the process of the distributed system calling each other. It can ensure that the event messages are not lost in any case.</p>
-<p>Distributed transactions are an inevitable requirement in a distributed system, and the current solution for distributed transactions is nothing more than just a few. Before understanding the CAP's distributed transaction scenarios, you can read the following [Articles] (http://www.infoq.com/en/articles/solution-of-distributed-system-transaction-consistency).</p>
-<p>The CAP does not use the two-phase commit (2PC) transaction mechanism, but uses the classical message implementation of the local message table + MQ, which is also called asynchronous guarantee.</p>
-<ul>
-<li>2.Highly usable EventBus</li>
-</ul>
-<p>You can also use the CAP as an EventBus. The CAP provides a simpler way to implement event publishing and subscriptions. You do not need to inherit or implement any interface during the process of subscription and sending.</p>
-<p>CAP implements the publish and subscribe method of EventBus, which has all the features of EventBus. This means that you can use CAPs just like EventBus. In addition, CAP's EventBus is highly available. What does this mean?</p>
-<p>The CAP uses the local message table to persist the messages in the EventBus. This ensures that the messages sent by the EventBus are reliable. When the message queue fails or fails, the messages are not lost.</p>
-<h3 id="quick-start">Quick Start</h3>
-<ul>
-<li><strong>Reference NuGet Package</strong></li>
-</ul>
+<div class="bs-callout bs-callout-primary">
+  <h4>1. The scheme of eventual consistency in distributed transactions</h4><br>
+In the process of building an SOA or MicroService system, we usually need to use the event to integrate each services. In the process, the simple use of message queue does not guarantee the reliability. CAP is adopted the local message table program integrated with the current database to solve the exception may occur in the process of the distributed system calling each other. It can ensure that the event messages are not lost in any case.
+<br><br>
+Distributed transactions are an inevitable requirement in a distributed system, and the current solution for distributed transactions is nothing more than just a few. Before understanding the CAP's distributed transaction scenarios, you can read the following [Articles] (http://www.infoq.com/en/articles/solution-of-distributed-system-transaction-consistency).
+<br><br>
+The CAP does not use the two-phase commit (2PC) transaction mechanism, but uses the classical message implementation of the local message table + MQ, which is also called asynchronous guarantee.
+</div>
+
+<div class="bs-callout bs-callout-primary">
+  <h4>2. Highly usable EventBus</h4><br>
+
+You can also use the CAP as an EventBus. The CAP provides a simpler way to implement event publishing and subscriptions. You do not need to inherit or implement any interface during the process of subscription and sending.
+<br><br>
+CAP implements the publish and subscribe method of EventBus, which has all the features of EventBus. This means that you can use CAPs just like EventBus. In addition, CAP's EventBus is highly available. What does this mean?
+<br><br>
+The CAP uses the local message table to persist the messages in the EventBus. This ensures that the messages sent by the EventBus are reliable. When the message queue fails or fails, the messages are not lost.
+</div>
+
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="nuget-package">NuGet Package</h3>
 <p>Use the following command to reference the CAP NuGet package:</p>
 <pre><code>PM&gt; Install-Package DotNetCore.CAP
 </code></pre>
 
 <p>According to the different types of message queues used, different extension packages are introduced:</p>
 <pre><code>PM&gt; Install-Package DotNetCore.CAP.RabbitMQ
+
 PM&gt; Install-Package DotNetCore.CAP.Kafka
 </code></pre>
 
 <p>According to the different types of databases used, different extension packages are introduced:</p>
 <pre><code>PM&gt; Install-Package DotNetCore.CAP.SqlServer
+
 PM&gt; Install-Package DotNetCore.CAP.MySql
+
 PM&gt; Install-Package DotNetCore.CAP.PostgreSql
+
 PM&gt; Install-Package DotNetCore.CAP.MongoDB
 </code></pre>
 
-<ul>
-<li><strong>Startup Configuration</strong></li>
-</ul>
+<h3 id="startup-configuration">Startup Configuration</h3>
 <p>In an ASP.NET Core program, you can configure the services used by the CAP in the <code>Startup.cs</code> file <code>ConfigureServices()</code>:</p>
 <pre><code class="cs">public void ConfigureServices(IServiceCollection services)
 {
@@ -268,7 +280,8 @@ PM&gt; Install-Package DotNetCore.CAP.MongoDB
     services.AddCap(x =&gt;
     {
         // If you are using EF, you need to add the configuration：
-        x.UseEntityFramework&lt;AppDbContext&gt;(); //Options, Notice: You don't need to config x.UseSqlServer(&quot;&quot;&quot;) again! CAP can autodiscovery.
+        //Options, Notice: You don't need to config x.UseSqlServer(&quot;&quot;&quot;) again! CAP can autodiscovery.
+        x.UseEntityFramework&lt;AppDbContext&gt;(); 
 
         // If you are using Ado.Net, you need to add the configuration：
         x.UseSqlServer(&quot;Your ConnectionStrings&quot;);
@@ -283,6 +296,98 @@ PM&gt; Install-Package DotNetCore.CAP.MongoDB
 
         // If you are using Kafka, you need to add the configuration：
         x.UseKafka(&quot;localhost&quot;);
+    });
+}
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+<h4 id="publish">Publish</h4>
+<p>Inject <code>ICapPublisher</code> in your Controller, then use the <code>ICapPublisher</code> to send message</p>
+<pre><code class="c#">public class PublishController : Controller
+{
+    private readonly ICapPublisher _capBus;
+
+    public PublishController(ICapPublisher capPublisher)
+    {
+        _capBus = capPublisher;
+    }
+
+    [Route(&quot;~/adonet/transaction&quot;)]
+    public IActionResult AdonetWithTransaction()
+    {
+        using (var connection = new MySqlConnection(ConnectionString))
+        {
+            using (var transaction = connection.BeginTransaction(_capBus, autoCommit: true))
+            {
+                //your business logic code
+
+                _capBus.Publish(&quot;xxx.services.show.time&quot;, DateTime.Now);
+            }
+        }
+
+        return Ok();
+    }
+
+    [Route(&quot;~/ef/transaction&quot;)]
+    public IActionResult EntityFrameworkWithTransaction([FromServices]AppDbContext dbContext)
+    {
+        using (var trans = dbContext.Database.BeginTransaction(_capBus, autoCommit: true))
+        {
+            //your business logic code
+
+            _capBus.Publish(&quot;xxx.services.show.time&quot;, DateTime.Now);
+        }
+
+        return Ok();
+    }
+}
+
+</code></pre>
+
+<h4 id="subscribe">Subscribe</h4>
+<p><strong>In Controller Action</strong></p>
+<p>Add the Attribute <code>[CapSubscribe()]</code> on Action to subscribe message:</p>
+<pre><code class="c#">public class PublishController : Controller
+{
+    [CapSubscribe(&quot;xxx.services.show.time&quot;)]
+    public void CheckReceivedMessage(DateTime datetime)
+    {
+        Console.WriteLine(datetime);
+    }
+}
+
+</code></pre>
+
+<p><strong>In Business Logic Service</strong></p>
+<p>If your subscribe method is not in the Controller, the service class you need to Inheritance <code>ICapSubscribe</code>:</p>
+<pre><code class="c#">
+namespace BusinessCode.Service
+{
+    public interface ISubscriberService
+    {
+        public void CheckReceivedMessage(DateTime datetime);
+    }
+
+    public class SubscriberService: ISubscriberService, ICapSubscribe
+    {
+        [CapSubscribe(&quot;xxx.services.show.time&quot;)]
+        public void CheckReceivedMessage(DateTime datetime)
+        {
+        }
+    }
+}
+
+</code></pre>
+
+<p>Then inject your  <code>ISubscriberService</code>  class in <code>Startup.cs</code></p>
+<pre><code class="c#">public void ConfigureServices(IServiceCollection services)
+{
+    //Note: The injection of services needs before of `services.AddCap()`
+    services.AddTransient&lt;ISubscriberService,SubscriberService&gt;();
+
+    services.AddCap(x=&gt;
+    {
+        //...
     });
 }
 </code></pre></div>
