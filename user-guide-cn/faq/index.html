@@ -375,7 +375,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/design-principle/" title="Design Principle" class="md-nav__link">
+    <a href="../../user-guide/design/" title="Design Principle" class="md-nav__link">
       Design Principle
     </a>
   </li>
@@ -387,7 +387,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/implementation-mechanisms/" title="Implementation Mechanisms" class="md-nav__link">
+    <a href="../../user-guide/implementation/" title="Implementation Mechanisms" class="md-nav__link">
       Implementation Mechanisms
     </a>
   </li>
@@ -399,7 +399,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/distributed-transactions/" title="Distributed Transactions" class="md-nav__link">
+    <a href="../../user-guide/transaction/" title="Distributed Transactions" class="md-nav__link">
       Distributed Transactions
     </a>
   </li>
@@ -627,7 +627,18 @@ QQ群有效沟通太低，浪费时间。</p>
 <p><strong>3、CAP如何在不同的实例中使用相同的数据库？</strong></p>
 <p>如果想在不同的实例（程序）中连接相同的数据库，那么你可以在配置CAP的时候通过指定不同的数据库表名前缀来实现。</p>
 <p>你可以通过以下方式来指定数据库表名前缀：</p>
-<p><div class="codehilite"><pre><span></span>public void ConfigureServices(IServiceCollection services)
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>public void ConfigureServices(IServiceCollection services)
 {
     services.AddCap(x =&gt;
     {
@@ -640,6 +651,7 @@ QQ群有效沟通太低，浪费时间。</p>
     });
 }
 </pre></div>
+</td></tr></table>
 注意：相同的实例不需要指定不同的表名称前缀，他们在接收消息的时候会进行负载均衡。</p>
 <p><strong>4、CAP可以不使用数据库吗? 我仅仅是想通过她来传递消息，我可以接受消息丢失的情况</strong> </p>
 <p>目前是不可以的。 </p>

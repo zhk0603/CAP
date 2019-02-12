@@ -21,17 +21,17 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://cap.dotnet-chain.org/user-guide/design-principle/</loc>
+     <loc>https://cap.dotnet-chain.org/user-guide/design/</loc>
      <lastmod>2019-02-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://cap.dotnet-chain.org/user-guide/implementation-mechanisms/</loc>
+     <loc>https://cap.dotnet-chain.org/user-guide/implementation/</loc>
      <lastmod>2019-02-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://cap.dotnet-chain.org/user-guide/distributed-transactions/</loc>
+     <loc>https://cap.dotnet-chain.org/user-guide/transaction/</loc>
      <lastmod>2019-02-12</lastmod>
      <changefreq>daily</changefreq>
     </url>

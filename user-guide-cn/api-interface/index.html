@@ -379,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/design-principle/" title="Design Principle" class="md-nav__link">
+    <a href="../../user-guide/design/" title="Design Principle" class="md-nav__link">
       Design Principle
     </a>
   </li>
@@ -391,7 +391,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/implementation-mechanisms/" title="Implementation Mechanisms" class="md-nav__link">
+    <a href="../../user-guide/implementation/" title="Implementation Mechanisms" class="md-nav__link">
       Implementation Mechanisms
     </a>
   </li>
@@ -403,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/distributed-transactions/" title="Distributed Transactions" class="md-nav__link">
+    <a href="../../user-guide/transaction/" title="Distributed Transactions" class="md-nav__link">
       Distributed Transactions
     </a>
   </li>
@@ -759,7 +759,53 @@
                 <p>CAP 的 API 接口只有一个，就是 <code class="codehilite">ICapPublisher</code> 接口，你可以从 DI 容器中获取到该接口的实例进行调用。</p>
 <h3 id="_1">发布/发送<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>你可以使用 <code class="codehilite">ICapPublisher</code> 接口中的 <code class="codehilite">Publish&lt;T&gt;</code> 或者 <code class="codehilite">PublishAsync&lt;T&gt;</code> 方法来发送消息：</p>
-<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PublishController</span> <span class="p">:</span> <span class="n">Controller</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PublishController</span> <span class="p">:</span> <span class="n">Controller</span>
 <span class="p">{</span>
     <span class="k">private</span> <span class="k">readonly</span> <span class="n">ICapPublisher</span> <span class="n">_capBus</span><span class="p">;</span>
 
@@ -807,6 +853,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>下面是PublishAsync这个接口的签名：</p>
 <p><strong><code class="codehilite">PublishAsync&lt;T&gt;(string name,T object)</code></strong></p>
@@ -819,7 +866,25 @@
 <p>在一些需要业务补偿的场景中，我们可以利用此特性进行一些还原的补偿操作。例如：电商系统中的付款操作，订单在进行支付调用支付服务的过程中如果发生异常，那么支付服务可以通过返回一个结果来告诉调用方此次业务失败，调用方将支付状态标记为失败。 调用方通过订阅 <code class="codehilite">callbackName</code>(订阅参数为消费方方法的返回值) 即可接收到支付服务消费者方法的返回结果，从而进行补偿的业务处理。</p>
 </blockquote>
 <p>下面是使用方法：</p>
-<div class="codehilite"><pre><span></span><span class="c1">// 发送方</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// 发送方</span>
 <span class="n">_capBus</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="s">&quot;xxx.services.show.time&quot;</span><span class="p">,</span><span class="n">DaateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">,</span><span class="s">&quot;callback-show-execute-time&quot;</span><span class="p">);</span>
 
 <span class="na">[CapSubscribe(&quot;callback-show-execute-time&quot;)]</span>   <span class="c1">//对应发送的 callbackName</span>
@@ -839,6 +904,7 @@
     <span class="k">return</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span> <span class="c1">// 这是消费者返回的时间，CAP会取该方法的返回值用来传递到发送方的回调订阅里面</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h4 id="_3">事务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>事务在 CAP 具有重要作用，它是保证消息可靠性的一个基石。 在发送一条消息到消息队列的过程中，如果不使用事务，我们是没有办法保证我们的业务代码在执行成功后消息已经成功的发送到了消息队列，或者是消息成功的发送到了消息队列，但是业务代码确执行失败。</p>
@@ -848,7 +914,14 @@
 <ul>
 <li>EntityFramework</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">trans</span> <span class="p">=</span> <span class="n">dbContext</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">_capBus</span><span class="p">,</span> <span class="n">autoCommit</span><span class="p">:</span> <span class="k">false</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">trans</span> <span class="p">=</span> <span class="n">dbContext</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">_capBus</span><span class="p">,</span> <span class="n">autoCommit</span><span class="p">:</span> <span class="k">false</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">//业务代码</span>
 
@@ -857,6 +930,7 @@
     <span class="n">trans</span><span class="p">.</span><span class="n">Commit</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>在不使用自动提交的时候，你的业务代码可以位于 Publish 之前或者之后，只需要保证在同一个事务。 </p>
 <p>当使用自动提交时候，需要确保 <code class="codehilite">_capBus.Publish</code> 位于代码的最后。</p>
@@ -864,7 +938,18 @@
 <ul>
 <li>Dapper</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MySqlConnection</span><span class="p">(</span><span class="n">ConnectionString</span><span class="p">))</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MySqlConnection</span><span class="p">(</span><span class="n">ConnectionString</span><span class="p">))</span>
 <span class="p">{</span>
     <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">_capBus</span><span class="p">,</span> <span class="n">autoCommit</span><span class="p">:</span> <span class="k">false</span><span class="p">))</span>
     <span class="p">{</span>
@@ -877,25 +962,37 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h3 id="_4">订阅/消费<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><strong>注意：框架无法做到100%确保消息只执行一次，所以在一些关键场景消息端在方法实现的过程中自己保证幂等性。</strong></p>
 <p>使用 <code class="codehilite">CapSubscribeAttribute</code> 来订阅 CAP 发布出去的消息。</p>
-<div class="codehilite"><pre><span></span><span class="k">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
 <span class="na">public void BarMessageProcessor()</span>
 <span class="na">{</span>
 
 <span class="na">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>这里，你也可以使用多个 <code class="codehilite">CapSubscribe[&quot;&quot;]</code> 来同时订阅多个不同的消息 :</p>
-<div class="codehilite"><pre><span></span><span class="k">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
 <span class="k">[CapSubscribe(&quot;xxx.services.foo&quot;)]</span>
 <span class="na">public void BarAndFooMessageProcessor()</span>
 <span class="na">{</span>
 
 <span class="na">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>其中，<code class="codehilite">xxx.services.bar</code> 为订阅的消息名称，内部实现上，这个名称在不同的消息队列具有不同的代表。 在 Kafka 中，这个名称即为 Topic Name。 在RabbitMQ 中，为 RouteKey。</p>
 <blockquote>
@@ -914,12 +1011,17 @@
 <p><strong>组(Group)</strong>，是订阅者的一个集合，每一组可以有一个或者多个消费者，但是一个订阅者只能属于某一个组。同一个组内的订阅者订阅的消息只能被消费一次。</p>
 <p>如果你在订阅的时候没有指定组，CAP会将订阅者设置到一个默认的组，默认的组名称为 <code class="codehilite">cap.queue.{程序集名称}</code>。</p>
 <p>以下是使用组进行订阅的示例：</p>
-<div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.foo&quot;, Group = &quot;moduleA&quot;)]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.foo&quot;, Group = &quot;moduleA&quot;)]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">FooMessageProcessor</span><span class="p">()</span>
 <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h4 id="_5">例外情况<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>这里有几种情况可能需要知道：</p>

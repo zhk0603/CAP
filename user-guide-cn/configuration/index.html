@@ -379,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/design-principle/" title="Design Principle" class="md-nav__link">
+    <a href="../../user-guide/design/" title="Design Principle" class="md-nav__link">
       Design Principle
     </a>
   </li>
@@ -391,7 +391,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/implementation-mechanisms/" title="Implementation Mechanisms" class="md-nav__link">
+    <a href="../../user-guide/implementation/" title="Implementation Mechanisms" class="md-nav__link">
       Implementation Mechanisms
     </a>
   </li>
@@ -403,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/distributed-transactions/" title="Distributed Transactions" class="md-nav__link">
+    <a href="../../user-guide/transaction/" title="Distributed Transactions" class="md-nav__link">
       Distributed Transactions
     </a>
   </li>
@@ -790,10 +790,13 @@
 <p>CAP 使用 Microsoft.Extensions.DependencyInjection 进行配置的注入，你也可以依赖于 DI 从json文件中读取配置。</p>
 <h3 id="cap-options">Cap Options<a class="headerlink" href="#cap-options" title="Permanent link">&para;</a></h3>
 <p>你可以使用如下方式来配置 CAP 中的一些配置项，例如</p>
-<div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
     capOptions.FailedCallback = //...
 });
 </pre></div>
+</td></tr></table>
 
 <p><code class="codehilite">CapOptions</code>  提供了以下配置项：</p>
 <table>
@@ -842,12 +845,17 @@
 <p>FailedCallback 的类型为 <code class="codehilite">Action&lt;MessageType,string,string&gt;</code>，第一个参数为消息类型（发送的还是接收的），第二个参数为消息的名称（name），第三个参数为消息的内容（content）。</p>
 <h3 id="rabbitmq-options">RabbitMQ Options<a class="headerlink" href="#rabbitmq-options" title="Permanent link">&para;</a></h3>
 <p>CAP 采用的是针对 CapOptions 进行扩展来实现RabbitMQ的配置功能，所以针对 RabbitMQ 的配置用法如下：</p>
-<div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
     capOptions.UseRabbitMQ(rabbitMQOption=&gt;{
         // rabbitmq options.
     });
 });
 </pre></div>
+</td></tr></table>
 
 <p><code class="codehilite">RabbitMQOptions</code> 提供了有关RabbitMQ相关的配置：</p>
 <table>
@@ -924,19 +932,31 @@
 </table>
 <h3 id="kafka-options">Kafka Options<a class="headerlink" href="#kafka-options" title="Permanent link">&para;</a></h3>
 <p>CAP 采用的是针对 CapOptions 进行扩展来实现 Kafka 的配置功能，所以针对 Kafka 的配置用法如下：</p>
-<div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
     capOptions.UseKafka(kafkaOption=&gt;{
         // kafka options.
         // kafkaOptions.MainConfig.Add(&quot;&quot;, &quot;&quot;);
     });
 });
 </pre></div>
+</td></tr></table>
 
 <p><code class="codehilite">KafkaOptions</code> 提供了有关 Kafka 相关的配置，由于Kafka的配置比较多，所以此处使用的是提供的 MainConfig 字典来支持进行自定义配置，你可以查看这里来获取对配置项的支持信息。</p>
 <p><a href="https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md">https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md</a></p>
 <h3 id="entityframework-options">EntityFramework Options<a class="headerlink" href="#entityframework-options" title="Permanent link">&para;</a></h3>
 <p>如果使用的 Entityframework 来作为消息持久化存储的话，那么你可以在配置 CAP EntityFramework 配置项的时候来自定义一些配置。</p>
-<div class="codehilite"><pre><span></span>services.AddCap(x =&gt;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(x =&gt;
 {
     x.UseEntityFramework&lt;AppDbContext&gt;(efOption =&gt; 
     {
@@ -944,6 +964,7 @@
     });
 });
 </pre></div>
+</td></tr></table>
 
 <p>注意，如果你使用了 <code class="codehilite">UseEntityFramework</code> 的配置项，那么你不需要再次配置下面的章节几个针对不同数据库的配置，CAP 将会自动读取 DbContext 中使用的数据库相关配置信息。</p>
 <table>
@@ -979,12 +1000,17 @@
 <h3 id="sqlserver-options">SqlServer Options<a class="headerlink" href="#sqlserver-options" title="Permanent link">&para;</a></h3>
 <p>注意，如果你使用的是 EntityFramewrok，你用不到此配置项。</p>
 <p>CAP 采用的是针对 CapOptions 进行扩展来实现 SqlServer 的配置功能，所以针对 SqlServer 的配置用法如下：</p>
-<div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
     capOptions.UseSqlServer(sqlserverOptions =&gt; {
        // sqlserverOptions.ConnectionString
     });
 });
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1013,12 +1039,17 @@
 <h3 id="mysql-options">MySql Options<a class="headerlink" href="#mysql-options" title="Permanent link">&para;</a></h3>
 <p>注意，如果你使用的是 EntityFramewrok，你用不到此配置项。</p>
 <p>CAP 采用的是针对 CapOptions 进行扩展来实现 MySql 的配置功能，所以针对 MySql 的配置用法如下：</p>
-<div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
     capOptions.UseMySql(mysqlOptions =&gt; {
        // mysqlOptions.ConnectionString
     });
 });
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1047,12 +1078,17 @@
 <h3 id="postgresql-options">PostgreSql Options<a class="headerlink" href="#postgresql-options" title="Permanent link">&para;</a></h3>
 <p>注意，如果你使用的是 EntityFramewrok，你用不到此配置项。</p>
 <p>CAP 采用的是针对 CapOptions 进行扩展来实现 PostgreSql 的配置功能，所以针对 PostgreSql 的配置用法如下：</p>
-<div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>services.AddCap(capOptions =&gt; {
     capOptions.UsePostgreSql(postgreOptions =&gt; {
        // postgreOptions.ConnectionString
     });
 });
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>

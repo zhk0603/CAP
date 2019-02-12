@@ -492,7 +492,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../design-principle/" title="Design Principle" class="md-nav__link">
+    <a href="../design/" title="Design Principle" class="md-nav__link">
       Design Principle
     </a>
   </li>
@@ -504,7 +504,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../implementation-mechanisms/" title="Implementation Mechanisms" class="md-nav__link">
+    <a href="../implementation/" title="Implementation Mechanisms" class="md-nav__link">
       Implementation Mechanisms
     </a>
   </li>
@@ -516,7 +516,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../distributed-transactions/" title="Distributed Transactions" class="md-nav__link">
+    <a href="../transaction/" title="Distributed Transactions" class="md-nav__link">
       Distributed Transactions
     </a>
   </li>
@@ -830,7 +830,44 @@
 <p>CAP only has one interface,It is <code class="codehilite">ICapPublisher</code>, You can get its instance from the DI container and then call it.</p>
 <h2 id="publish-send">Publish &amp; Send<a class="headerlink" href="#publish-send" title="Permanent link">&para;</a></h2>
 <p>You can use the <code class="codehilite">Publish&lt;T&gt;</code> or <code class="codehilite">PublishAsync&lt;T&gt;</code>  methods defined in the <code class="codehilite">ICapPublisher</code> interface to send the event messages.</p>
-<p><div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PublishController</span> <span class="p">:</span> <span class="n">Controller</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PublishController</span> <span class="p">:</span> <span class="n">Controller</span>
 <span class="p">{</span>
     <span class="k">private</span> <span class="k">readonly</span> <span class="n">ICapPublisher</span> <span class="n">_capBus</span><span class="p">;</span>
 
@@ -848,8 +885,8 @@
             <span class="p">{</span>
                 <span class="c1">//your business code</span>
 
-                <span class="n">_capBus</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="s">&quot;xxx.services.show.time&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
-            <span class="p">}</span>
+<span class="hll">                <span class="n">_capBus</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="s">&quot;xxx.services.show.time&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+</span>            <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="nf">Ok</span><span class="p">();</span>
@@ -862,23 +899,26 @@
         <span class="p">{</span>
             <span class="c1">//your business code</span>
 
-            <span class="n">_capBus</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="s">&quot;xxx.services.show.time&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="hll">            <span class="n">_capBus</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="s">&quot;xxx.services.show.time&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+</span>        <span class="p">}</span>
 
         <span class="k">return</span> <span class="nf">Ok</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 The following is the signature of the of the PublishAsync method</p>
-<div class="codehilite"><pre><span></span><span class="n">PublishAsync</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">T</span> <span class="kt">object</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PublishAsync</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">T</span> <span class="kt">object</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>By default,when this method(PublishAsync<T>) is called,CAP will create a transaction internally,
 and then write messages into the <code class="codehilite">Cap.Published</code> message table.</p>
 <p>In some situations,you may need a callback when a message is sent out, you can use the follwing
 overload of the <code class="codehilite">PublishAsync&lt;T&gt;</code> method:</p>
-<div class="codehilite"><pre><span></span><span class="n">PublishAsync</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">T</span> <span class="kt">object</span><span class="p">,</span> <span class="kt">string</span> <span class="n">callBackName</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">PublishAsync</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">T</span> <span class="kt">object</span><span class="p">,</span> <span class="kt">string</span> <span class="n">callBackName</span><span class="p">)</span>
 </pre></div>
+</td></tr></table>
 
 <p>In this overload method, <code class="codehilite">callbackName</code> is the callback name of the subscription method,when the consumption-side finished processing messages,CAP will return the processed result and also call the  specified subscription method</p>
 <h3 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link">&para;</a></h3>
@@ -891,7 +931,14 @@ overload of the <code class="codehilite">PublishAsync&lt;T&gt;</code> method:</p
 </div>
 <p>The following two blocks of code snippet demonstrate how to use transactions in EntityFramework and dapper when publishing messages.</p>
 <h4 id="entityframework">EntityFramework<a class="headerlink" href="#entityframework" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span> <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">trans</span> <span class="p">=</span> <span class="n">dbContext</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">_capBus</span><span class="p">,</span> <span class="n">autoCommit</span><span class="p">:</span> <span class="k">false</span><span class="p">)</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">trans</span> <span class="p">=</span> <span class="n">dbContext</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">_capBus</span><span class="p">,</span> <span class="n">autoCommit</span><span class="p">:</span> <span class="k">false</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// Your business logic。</span>
 
@@ -900,11 +947,23 @@ overload of the <code class="codehilite">PublishAsync&lt;T&gt;</code> method:</p
     <span class="n">trans</span><span class="p">.</span><span class="n">Commit</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 When you set the <code class="codehilite"><span class="n">autoCommit</span><span class="o">:</span> <span class="kc">false</span></code>, you can put your business logic before or after the Publish logic,the only thing you need to do is to ensure that they are in the same transaction.</p>
 <p>If you set the <code class="codehilite"><span class="n">autoCommit</span><span class="o">:</span> <span class="kc">true</span></code>, you need publish message <code class="codehilite">_capBus.Publish</code> at the last.</p>
 <p>During the course,the message content will be serialized as json and stored in the message table.</p>
 <h4 id="dapper">Dapper<a class="headerlink" href="#dapper" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MySqlConnection</span><span class="p">(</span><span class="n">ConnectionString</span><span class="p">))</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MySqlConnection</span><span class="p">(</span><span class="n">ConnectionString</span><span class="p">))</span>
 <span class="p">{</span>
     <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">BeginTransaction</span><span class="p">(</span><span class="n">_capBus</span><span class="p">,</span> <span class="n">autoCommit</span><span class="p">:</span> <span class="k">false</span><span class="p">))</span>
     <span class="p">{</span>
@@ -917,6 +976,7 @@ When you set the <code class="codehilite"><span class="n">autoCommit</span><span
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="subscribe-consume">Subscribe &amp; Consume<a class="headerlink" href="#subscribe-consume" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
@@ -925,18 +985,27 @@ When you set the <code class="codehilite"><span class="n">autoCommit</span><span
 <p>You can view more details in this <a href="https://github.com/dotnetcore/CAP/issues/29#issuecomment-451841287">ISSUE</a>.</p>
 </div>
 <p>Use <code class="codehilite">CapSubscribe[&quot;&quot;]</code> to decorate a method so that it can  subscribe messages published by CAP.</p>
-<p><div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">BarMessageProcessor</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 You can also use multiple <code class="codehilite">CapSubscribe[&quot;&quot;]</code> to decorate a method so that you can subscribe messages from different sources accordingly.</p>
-<p><div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.bar&quot;)]</span>
 <span class="na">[CapSubscribe(&quot;xxx.services.foo&quot;)]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">BarAndFooMessageProcessor</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 <code class="codehilite">xxx.services.bar</code> is the name of the message to be subscribed.And it has different name in different message queque Clients.for example,in kafka the name is called  Topic Name and in RAbbitMQ it is called RouteKey.</p>
 <p>In RabbitMQ you can use regular expression in RouteKey:
 <blockquote>
@@ -955,12 +1024,17 @@ You can also use multiple <code class="codehilite">CapSubscribe[&quot;&quot;]</c
 <p><strong>Group</strong> is a collection of subscribers,each group can have one or multiple consumers,but a subscriber can only belongs to a certain group(you can not put a subscriber into multiple groups).Messages subscribed by members in a certain group can only be consumed once.</p>
 <p>If you do not specify any group when subscribing,CAP will put the subscriber into a default group named <code class="codehilite">cap.default.group</code></p>
 <p>the following is a demo shows how to use group when subscribing.</p>
-<div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.foo&quot;, Group = &quot;moduleA&quot;)]</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="na">[CapSubscribe(&quot;xxx.services.foo&quot;, Group = &quot;moduleA&quot;)]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">FooMessageProcessor</span><span class="p">()</span>
 <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h3 id="exceptional-case">Exceptional case<a class="headerlink" href="#exceptional-case" title="Permanent link">&para;</a></h3>
 <p>The following situations you shoud be aware of.</p>

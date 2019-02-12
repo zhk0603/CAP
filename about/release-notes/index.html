@@ -379,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/design-principle/" title="Design Principle" class="md-nav__link">
+    <a href="../../user-guide/design/" title="Design Principle" class="md-nav__link">
       Design Principle
     </a>
   </li>
@@ -391,7 +391,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/implementation-mechanisms/" title="Implementation Mechanisms" class="md-nav__link">
+    <a href="../../user-guide/implementation/" title="Implementation Mechanisms" class="md-nav__link">
       Implementation Mechanisms
     </a>
   </li>
@@ -403,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide/distributed-transactions/" title="Distributed Transactions" class="md-nav__link">
+    <a href="../../user-guide/transaction/" title="Distributed Transactions" class="md-nav__link">
       Distributed Transactions
     </a>
   </li>
@@ -601,6 +601,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#version-240-2018-12-08" title="Version 2.4.0 (2018-12-08)" class="md-nav__link">
+    Version 2.4.0 (2018-12-08)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-231-2018-10-29" title="Version 2.3.1 (2018-10-29)" class="md-nav__link">
+    Version 2.3.1 (2018-10-29)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-230-2018-08-30" title="Version 2.3.0 (2018-08-30)" class="md-nav__link">
+    Version 2.3.0 (2018-08-30)
+  </a>
+  
+</li>
+      
       
       
       
@@ -675,6 +696,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#version-240-2018-12-08" title="Version 2.4.0 (2018-12-08)" class="md-nav__link">
+    Version 2.4.0 (2018-12-08)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-231-2018-10-29" title="Version 2.3.1 (2018-10-29)" class="md-nav__link">
+    Version 2.3.1 (2018-10-29)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-230-2018-08-30" title="Version 2.3.0 (2018-08-30)" class="md-nav__link">
+    Version 2.3.0 (2018-08-30)
+  </a>
+  
+</li>
+      
       
       
       
@@ -695,22 +737,90 @@
                 
                 
                 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
-<hr />
 <h2 id="version-242-2019-01-08">Version 2.4.2 (2019-01-08)<a class="headerlink" href="#version-242-2019-01-08" title="Permanent link">&para;</a></h2>
 <p><strong>Features:</strong></p>
 <ul>
-<li>Startup the CAP with the .NET Core 2.1 BackgroundService. <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/265" title="GitHub Issue: dotnetcore/cap#265">#265</a></li>
+<li>Startup the CAP with the .NET Core 2.1 BackgroundService. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/265" title="GitHub Issue: dotnetcore/cap#265">#265</a>)</li>
 <li>Improved message delivery performance. <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/261" title="GitHub Issue: dotnetcore/cap#261">#261</a></li>
 </ul>
 <p><strong>Bug Fixed:</strong></p>
 <ul>
-<li>Fixed PostgreSql version isolation feature bug. <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/256" title="GitHub Issue: dotnetcore/cap#256">#256</a></li>
-<li>Fixed SQL Server sql bug for dashboard search. <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/266" title="GitHub Issue: dotnetcore/cap#266">#266</a></li>
+<li>Fixed PostgreSql version isolation feature bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/256" title="GitHub Issue: dotnetcore/cap#256">#256</a>)</li>
+<li>Fixed SQL Server sql bug for dashboard search. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/266" title="GitHub Issue: dotnetcore/cap#266">#266</a>)</li>
 </ul>
 <h2 id="version-241-2018-12-19">Version 2.4.1 (2018-12-19)<a class="headerlink" href="#version-241-2018-12-19" title="Permanent link">&para;</a></h2>
 <p><strong>Bug Fixed:</strong></p>
 <ul>
 <li>Fixed MongoDB version isolation feature bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/253" title="GitHub Issue: dotnetcore/cap#253">#253</a>)</li>
+</ul>
+<h2 id="version-240-2018-12-08">Version 2.4.0 (2018-12-08)<a class="headerlink" href="#version-240-2018-12-08" title="Permanent link">&para;</a></h2>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Supported version options. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/220" title="GitHub Issue: dotnetcore/cap#220">#220</a>)</li>
+<li>Upgrade nuget package to .net core 2.2.</li>
+</ul>
+<p><strong>Breaking Changes:</strong></p>
+<p>In order to support the "version isolation" feature, we introduced a new version field in version 2.4.0 to isolate different versions of the message, so this requires some adjustments to the database table structure. You can use the following SQL to add a version field to your database CAP related table.</p>
+<p><strong>MySQL</strong>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">cap</span><span class="p">.</span><span class="n">published</span><span class="o">`</span> <span class="k">ADD</span> <span class="k">Version</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">cap</span><span class="p">.</span><span class="n">received</span><span class="o">`</span> <span class="k">ADD</span> <span class="k">Version</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NULL</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></p>
+<p><strong>SQL Server</strong>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Cap</span><span class="p">.[</span><span class="n">Published</span><span class="p">]</span> <span class="k">ADD</span> <span class="k">Version</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Cap</span><span class="p">.[</span><span class="n">Received</span><span class="p">]</span> <span class="k">ADD</span> <span class="k">Version</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NULL</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></p>
+<p><strong>PostgreSQL</strong>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">cap</span><span class="p">.</span><span class="n">published</span> <span class="k">ADD</span>  <span class="ss">&quot;Version&quot;</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">cap</span><span class="p">.</span><span class="n">received</span> <span class="k">ADD</span> <span class="ss">&quot;Version&quot;</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NULL</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></p>
+<p><strong>MongoDb</strong>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>db.CapPublishedMessage.update({},{&quot;$set&quot; : {&quot;Version&quot; : &quot;1&quot;}});
+db.CapReceivedMessage.update({},{&quot;$set&quot; : {&quot;Version&quot; : &quot;1&quot;}});
+</pre></div>
+</td></tr></table></p>
+<p><strong>Bug Fixed:</strong></p>
+<ul>
+<li>Fixed different groups of the same topic name in one instance will cause routing bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/235" title="GitHub Issue: dotnetcore/cap#235">#235</a>)</li>
+<li>Fixed message presistence bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/240" title="GitHub Issue: dotnetcore/cap#240">#240</a>)</li>
+<li>Fixed RabbitMQ topic name contains numbers will cause exception bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/181" title="GitHub Issue: dotnetcore/cap#181">#181</a>)</li>
+</ul>
+<h2 id="version-231-2018-10-29">Version 2.3.1 (2018-10-29)<a class="headerlink" href="#version-231-2018-10-29" title="Permanent link">&para;</a></h2>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Add Source Link Support</li>
+<li>Upgrade dependent NuGet packages.</li>
+</ul>
+<p><strong>Bug Fixed:</strong></p>
+<ul>
+<li>Fixed dashboard messages requeue error. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/205" title="GitHub Issue: dotnetcore/cap#205">#205</a>)</li>
+<li>Adjustment snowflake workerId to random id.</li>
+<li>Fixed flush unclaer data bug.</li>
+</ul>
+<h2 id="version-230-2018-08-30">Version 2.3.0 (2018-08-30)<a class="headerlink" href="#version-230-2018-08-30" title="Permanent link">&para;</a></h2>
+<p>In this version, we made some breaking changes for the publisher API, you can see this blog to understand the story behind.</p>
+<p>If you have any migration question, please comment in issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/190" title="GitHub Issue: dotnetcore/cap#190">#190</a>.</p>
+<p><strong>Breaking Changes:</strong></p>
+<ul>
+<li>Removed app.UseCap() from Startup.cs</li>
+<li>Message table primary key data type has been modified to Bigint and non auto-Increment. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/180" title="GitHub Issue: dotnetcore/cap#180">#180</a>)</li>
+<li>New publisher Api. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/188" title="GitHub Issue: dotnetcore/cap#188">#188</a>)</li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul>
+<li>MongoDb supported. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/143" title="GitHub Issue: dotnetcore/cap#143">#143</a>)</li>
+<li>Automatic commit transaction. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/191" title="GitHub Issue: dotnetcore/cap#191">#191</a>)</li>
+</ul>
+<p><strong>Bug Fixed:</strong></p>
+<ul>
+<li>Fix message still sent if transaction faild bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/118" title="GitHub Issue: dotnetcore/cap#118">#118</a>)</li>
+<li>Multiple events in one transaction. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/171" title="GitHub Issue: dotnetcore/cap#171">#171</a>)</li>
 </ul>
                 
                   

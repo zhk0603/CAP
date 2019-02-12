@@ -13,7 +13,7 @@
         <meta name="description" content="Project documentation with Markdown.">
       
       
-        <link rel="canonical" href="https://cap.dotnet-chain.org/user-guide/implementation-mechanisms/">
+        <link rel="canonical" href="https://cap.dotnet-chain.org/user-guide/implementation/">
       
       
         <meta name="author" content="CAP Team">
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#message-table" tabindex="1" class="md-skip">
+      <a href="#implementation" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -381,7 +381,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../design-principle/" title="Design Principle" class="md-nav__link">
+    <a href="../design/" title="Design Principle" class="md-nav__link">
       Design Principle
     </a>
   </li>
@@ -398,6 +398,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Implementation Mechanisms
@@ -411,6 +413,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -423,8 +427,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#message-format5" title="Message format5" class="md-nav__link">
-    Message format5
+  <a href="#message-format" title="Message format" class="md-nav__link">
+    Message format
   </a>
   
 </li>
@@ -467,7 +471,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../distributed-transactions/" title="Distributed Transactions" class="md-nav__link">
+    <a href="../transaction/" title="Distributed Transactions" class="md-nav__link">
       Distributed Transactions
     </a>
   </li>
@@ -672,6 +676,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -684,8 +690,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#message-format5" title="Message format5" class="md-nav__link">
-    Message format5
+  <a href="#message-format" title="Message format" class="md-nav__link">
+    Message format
   </a>
   
 </li>
@@ -727,13 +733,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dotnetcore/cap/edit/master/docs/user-guide/implementation-mechanisms.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/dotnetcore/cap/edit/master/docs/user-guide/implementation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Implementation Mechanisms</h1>
-                
-                <p>Users can get a ICapPublisher interface from the ASP.NET Core DI container to publish a message .It is initialized by  configurations in the <code class="codehilite">ConfigureServices</code> and <code class="codehilite">configure</code> method in the Startup.cs file,just like the way to initialize a <code class="codehilite">MiddleWare</code> in ASP.NET Core.</p>
-<h3 id="message-table">Message Table<a class="headerlink" href="#message-table" title="Permanent link">&para;</a></h3>
+                <h1 id="implementation">IMPLEMENTATION<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h1>
+<p>Users can get a ICapPublisher interface from the ASP.NET Core DI container to publish a message .It is initialized by  configurations in the <code class="codehilite">ConfigureServices</code> and <code class="codehilite">configure</code> method in the Startup.cs file,just like the way to initialize a <code class="codehilite">MiddleWare</code> in ASP.NET Core.</p>
+<h2 id="message-table">Message Table<a class="headerlink" href="#message-table" title="Permanent link">&para;</a></h2>
 <p>After initialized, CAP will create two tables in the client side,they are <code class="codehilite">Cap.Published</code> and <code class="codehilite">Cap.Received</code>. Please noted that different databases may deal letter case differently,if you do not explicitly specify the Schema or the TableName Prefix before project startup,the default names are the ones mentioned above.</p>
 <p><strong>Cap.Published</strong>：Used to store  messages(Published by the <code class="codehilite">ICapPublisher</code> service) that CAP published to the MQ(Message Queue)Client side</p>
 <p><strong>Cap.Received</strong>:Used to Store messages(subscribed by the <code class="codehilite">CapSubscribe[]</code>) subscribed by the MQ(message Queue) client side that CAP received.</p>
@@ -750,7 +755,7 @@
 <blockquote>
 <p>Before version 2.2,CAP retry  100 times for <code class="codehilite">Failed</code> messages by default.</p>
 </blockquote>
-<h3 id="message-format5">Message format5<a class="headerlink" href="#message-format5" title="Permanent link">&para;</a></h3>
+<h2 id="message-format">Message format<a class="headerlink" href="#message-format" title="Permanent link">&para;</a></h2>
 <p>CAP use JSON to transfer message,the following is CAP's messaging object model:</p>
 <table>
 <thead>
@@ -844,14 +849,14 @@
 </tbody>
 </table>
 <p>CAP use the same algorithms as MongoDB ObjectId's distributed Id  generation algorithms.</p>
-<h3 id="eventbus">EventBus<a class="headerlink" href="#eventbus" title="Permanent link">&para;</a></h3>
+<h2 id="eventbus">EventBus<a class="headerlink" href="#eventbus" title="Permanent link">&para;</a></h2>
 <p>EventBus adopt the publish-subscribe messaging style to communicate with different components,and there is no need to register it in component explicitly.</p>
 <p><img alt="" src="http://images2017.cnblogs.com/blog/250417/201708/250417-20170804153901240-1774287236.png" /></p>
 <p>the diagram in the above link shows Eventbus's event flowchart,about EventBus,users can refer to other meterials to learn about it.</p>
 <p>We say that CAP implement all the features in Eventbus,EventBus has two features:publish and subscribe,In CAP we implement them in an elegant way.Besides,CAP also has two very robust feature,they are message persistence and messaging reliability under any circumstances,But EventBus don't have such features.</p>
 <p><img alt="" src="https://camo.githubusercontent.com/452505edb71d41f2c1bd18907275b76291621e46/687474703a2f2f696d61676573323031352e636e626c6f67732e636f6d2f626c6f672f3235303431372f3230313730372f3235303431372d32303137303730353137353832373132382d313230333239313436392e706e67" /></p>
 <p>In CAP,send a message can be regarded as an "Event",When CAP is used in an ASP.NET Core applicaiton,the application has the ablity to publish as well as receive messages.</p>
-<h3 id="retry">Retry<a class="headerlink" href="#retry" title="Permanent link">&para;</a></h3>
+<h2 id="retry">Retry<a class="headerlink" href="#retry" title="Permanent link">&para;</a></h2>
 <p>Retry plays a very important role in CAP's infrastructure,CAP will retry for Failed messages.CAP has the following retry  strategies:</p>
 <p><strong>1、 Retry on sending</strong></p>
 <p>in the process of sending a message,when the Broker crashed or connection failed or exceptions are thrown,CAP will retry,it will retry 3 times for the first time,if still failed,then it will retry every 1 minute,the retry the retry count +1,when the retry count come to 50,CAP will not retry any more.</p>
@@ -861,7 +866,7 @@
 <p>As metioned above,when the retry count comes to a certain number,CAP will not retry anymore,this time,you can find out the fail reason in the Dashboard and they deal with it manually.</p>
 <p><strong>2、 Retry on Consuming</strong></p>
 <p>When consumer received messages,specified method in the consumer will be executed,if exceptions are thrown during this course,CAP will retry,the retry  strategy is the same as above <code class="codehilite">Retry on sending</code>.</p>
-<h3 id="data-clean-out">Data clean out<a class="headerlink" href="#data-clean-out" title="Permanent link">&para;</a></h3>
+<h2 id="data-clean-out">Data clean out<a class="headerlink" href="#data-clean-out" title="Permanent link">&para;</a></h2>
 <p>table to store messages in database has an <code class="codehilite">ExpiresAt</code> field to mark the expiration time of the message. CAP will set <code class="codehilite">ExpiresAt</code> value as <strong>1 hour</strong> for  <code class="codehilite">Successed</code> messages and <strong>15days</strong> for <code class="codehilite">Failed</code> messages.</p>
 <p>To avoid performance slow down caused by a large amount of data,CAP will delete expired data every hour by default,the deletion rule is that <code class="codehilite">ExpiresAt</code> field's value isn't null and samller than current time.That is, <code class="codehilite">Failed</code> messages(it has been retried  50 times by default),if you do not deal with it manually,will also be deleted after 15 days as well,you have to pay attention to it.</p>
                 
@@ -884,7 +889,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../design-principle/" title="Design Principle" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../design/" title="Design Principle" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -899,7 +904,7 @@
           </a>
         
         
-          <a href="../distributed-transactions/" title="Distributed Transactions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../transaction/" title="Distributed Transactions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
