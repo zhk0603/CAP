@@ -13,7 +13,7 @@
         <meta name="description" content="Project documentation with Markdown.">
       
       
-        <link rel="canonical" href="https://cap.dotnet-chain.com/user-guide/api-interface/">
+        <link rel="canonical" href="https://cap.dotnet-china.com/user-guide/api-interface/">
       
       
         <meta name="author" content="CAP Team">
@@ -119,7 +119,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://cap.dotnet-chain.com" title="CAP" class="md-header-nav__button md-logo">
+        <a href="https://cap.dotnet-china.com" title="CAP" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -276,7 +276,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://cap.dotnet-chain.com" title="CAP" class="md-nav__button md-logo">
+    <a href="https://cap.dotnet-china.com" title="CAP" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -442,15 +442,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kafka" title="Kafka:" class="md-nav__link">
-    Kafka:
+  <a href="#kafka" title="Kafka" class="md-nav__link">
+    Kafka
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rabbitmq" title="RabbitMQ:" class="md-nav__link">
-    RabbitMQ:
+  <a href="#rabbitmq" title="RabbitMQ" class="md-nav__link">
+    RabbitMQ
   </a>
   
 </li>
@@ -468,12 +468,6 @@
       
       
       
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
       
     </ul>
   
@@ -792,15 +786,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kafka" title="Kafka:" class="md-nav__link">
-    Kafka:
+  <a href="#kafka" title="Kafka" class="md-nav__link">
+    Kafka
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rabbitmq" title="RabbitMQ:" class="md-nav__link">
-    RabbitMQ:
+  <a href="#rabbitmq" title="RabbitMQ" class="md-nav__link">
+    RabbitMQ
   </a>
   
 </li>
@@ -818,12 +812,6 @@
       
       
       
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
       
     </ul>
   
@@ -1053,9 +1041,9 @@ You can also use multiple <code class="codehilite">CapSubscribe[&quot;&quot;]</c
 <h3 id="exceptional-case">Exceptional case<a class="headerlink" href="#exceptional-case" title="Permanent link">&para;</a></h3>
 <p>The following situations you shoud be aware of.</p>
 <p><strong>① the subscription side has not started yet when publishing a message</strong></p>
-<h4 id="kafka">Kafka:<a class="headerlink" href="#kafka" title="Permanent link">&para;</a></h4>
+<h4 id="kafka">Kafka<a class="headerlink" href="#kafka" title="Permanent link">&para;</a></h4>
 <p>In Kafka,published messages stored in the Persistent log files,so messages will not lost.when the subscription side started,it can still consume the message.</p>
-<h4 id="rabbitmq">RabbitMQ:<a class="headerlink" href="#rabbitmq" title="Permanent link">&para;</a></h4>
+<h4 id="rabbitmq">RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permanent link">&para;</a></h4>
 <p>In RabbitMQ, the application will create Persistent Exchange and Queue at the <strong>first start</strong>, CAP will create a new consumer queue for each consumer group,<strong>because the application started but the subscription side hasn's start yet so there has no queue,thus the message can not be persited,and the published messages will lost</strong></p>
 <p>There are two ways to solve this <code class="codehilite">message lost</code> issue in RamitMQ:</p>
 <ul>
@@ -1074,22 +1062,6 @@ You can also use multiple <code class="codehilite">CapSubscribe[&quot;&quot;]</c
               
                 
 
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://cap.dotnet-chain.com/user-guide/api-interface/";
-      this.page.identifier =
-        "/user-guide/api-interface/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//cap-1.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
 
               
             </article>
