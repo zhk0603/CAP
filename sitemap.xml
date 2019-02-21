@@ -2,92 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://cap.dotnet-china.com/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/getting-started/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/api-interface/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/configuration/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/design/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/implementation/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/transaction/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide/faq/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/getting-started/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/api-interface/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/configuration/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/design-principle/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/implementation-mechanisms/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/distributed-transactions/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/user-guide-cn/faq/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/about/release-notes/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/about/contributing/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://cap.dotnet-china.com/about/contact-us/</loc>
-     <lastmod>2019-02-12</lastmod>
+     <lastmod>2019-02-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://cap.dotnet-china.com/about/license/</loc>
+     <lastmod>2019-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
