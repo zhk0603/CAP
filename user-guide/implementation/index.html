@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.962652e9.js"></script>
+      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -67,8 +67,6 @@
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-    
-      <link rel="manifest" href="../../manifest.webmanifest">
     
     
     
@@ -131,22 +129,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                CAP
-              </span>
-              <span class="md-header-nav__topic">
-                Implementation Mechanisms
-              </span>
-            
+            <span class="md-header-nav__topic">
+              CAP
+            </span>
+            <span class="md-header-nav__topic">
+              Implementation Mechanisms
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -169,7 +164,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -180,20 +174,18 @@
 
   
 
-
-  <a href="https://github.com/dotnetcore/cap/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      dotnetcore/CAP
+<a href="https://github.com/dotnetcore/cap/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
           </div>
         </div>
       
@@ -205,67 +197,6 @@
       
         
       
-      
-        
-
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  <li class="md-tabs__item">
-    
-      <a href="../.." title="Home" class="md-tabs__link">
-        Home
-      </a>
-    
-  </li>
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../getting-started/" title="User Guide" class="md-tabs__link md-tabs__link--active">
-          User Guide
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../user-guide-cn/getting-started/" title="使用指南" class="md-tabs__link">
-          使用指南
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../about/release-notes/" title="About" class="md-tabs__link">
-          About
-        </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -290,20 +221,18 @@
 
   
 
-
-  <a href="https://github.com/dotnetcore/cap/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      dotnetcore/CAP
+<a href="https://github.com/dotnetcore/cap/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -756,19 +685,9 @@
 <p>After initialized, CAP will create two tables in the client side,they are <code class="codehilite">Cap.Published</code> and <code class="codehilite">Cap.Received</code>. Please noted that different databases may deal letter case differently,if you do not explicitly specify the Schema or the TableName Prefix before project startup,the default names are the ones mentioned above.</p>
 <p><strong>Cap.Published</strong>：Used to store  messages(Published by the <code class="codehilite">ICapPublisher</code> service) that CAP published to the MQ(Message Queue)Client side</p>
 <p><strong>Cap.Received</strong>:Used to Store messages(subscribed by the <code class="codehilite">CapSubscribe[]</code>) subscribed by the MQ(message Queue) client side that CAP received.</p>
-<blockquote>
-<p>Before version 2.2 ：
- <strong>Cap.Queue</strong>：A temporary table that CAP used to deal with published and received messages,under most circumstances(there aren't any errors),it is an empty table.</p>
-</blockquote>
 <p>Both <code class="codehilite">Published</code> and <code class="codehilite">Received</code> tables have a <code class="codehilite">StatusName</code> field,which is used to mark the status of the current message.Until now it has <code class="codehilite">Scheduled</code>，<code class="codehilite">Successed</code> and <code class="codehilite">Failed</code> statuses.</p>
-<blockquote>
-<p>Statuses before version 2.2：<code class="codehilite">Scheduled</code>，<code class="codehilite">Enqueued</code>，<code class="codehilite">Processing</code>，<code class="codehilite">Successed</code> and <code class="codehilite">Failed</code>.</p>
-</blockquote>
 <p>In the process of dealing with messages,CAP will change the status from <code class="codehilite">Scheduled</code> to <code class="codehilite">Successed</code>(or <code class="codehilite">Failed</code> ).if the final status is <code class="codehilite">Successed</code>,it means that the message is sent to MQ successfully,and <code class="codehilite">Failed</code> means the message is failed to sent to MQ.</p>
 <p>Version later than 2.2,  CAP will retry after 4 minutes if the status is <code class="codehilite">Scheduled</code> or <code class="codehilite">Failed</code>,the retry interval is default to 60 seconds.You can change it by modify <code class="codehilite">FailedRetryInterval</code> in <code class="codehilite">CapOptions</code>.</p>
-<blockquote>
-<p>Before version 2.2,CAP retry  100 times for <code class="codehilite">Failed</code> messages by default.</p>
-</blockquote>
 <h2 id="message-format">Message format<a class="headerlink" href="#message-format" title="Permanent link">&para;</a></h2>
 <p>CAP use JSON to transfer message,the following is CAP's messaging object model:</p>
 <table>
@@ -950,7 +869,6 @@
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
@@ -962,14 +880,13 @@
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../../assets/javascripts/application.a353778b.js"></script>
+      <script src="../../assets/javascripts/application.b806dc00.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
