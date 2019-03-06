@@ -498,7 +498,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide-cn/implementation-mechanisms/" title="实现" class="md-nav__link">
+    <a href="../../user-guide-cn/implementation/" title="实现" class="md-nav__link">
       实现
     </a>
   </li>
@@ -510,7 +510,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user-guide-cn/distributed-transactions/" title="分布式事务" class="md-nav__link">
+    <a href="../../user-guide-cn/transactions/" title="分布式事务" class="md-nav__link">
       分布式事务
     </a>
   </li>
@@ -792,7 +792,7 @@
 <h2 id="retry">Retry<a class="headerlink" href="#retry" title="Permanent link">&para;</a></h2>
 <p>Retry plays a very important role in CAP's infrastructure,CAP will retry for Failed messages.CAP has the following retry  strategies:</p>
 <p><strong>1、 Retry on sending</strong></p>
-<p>in the process of sending a message,when the Broker crashed or connection failed or exceptions are thrown,CAP will retry,it will retry 3 times for the first time,if still failed,then it will retry every 1 minute,the retry the retry count +1,when the retry count come to 50,CAP will not retry any more.</p>
+<p>in the process of sending a message,when the Broker crashed or connection failed or exceptions are thrown,CAP will retry,it will retry 3 times for the first time,if still failed,then it will retry every 1 minute after 4 minutes,the retry the retry count +1,when the retry count come to 50,CAP will not retry any more.</p>
 <blockquote>
 <p>You can modify <code class="codehilite">FailedRetryCount</code> in <code class="codehilite">CapOptions</code> to change the default retry count.</p>
 </blockquote>

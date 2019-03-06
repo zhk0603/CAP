@@ -13,7 +13,7 @@
         <meta name="description" content="Project documentation with Markdown.">
       
       
-        <link rel="canonical" href="http://cap.dotnetcore.xyz/user-guide-cn/implementation-mechanisms/">
+        <link rel="canonical" href="http://cap.dotnetcore.xyz/user-guide-cn/implementation/">
       
       
         <meta name="author" content="CAP Team">
@@ -506,7 +506,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../distributed-transactions/" title="分布式事务" class="md-nav__link">
+    <a href="../transactions/" title="分布式事务" class="md-nav__link">
       分布式事务
     </a>
   </li>
@@ -670,7 +670,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dotnetcore/cap/edit/master/docs/user-guide-cn/implementation-mechanisms.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/dotnetcore/cap/edit/master/docs/user-guide-cn/implementation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>实现</h1>
@@ -797,7 +797,7 @@
 <h3 id="_3">重试<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>重试在整个CAP架构设计中具有重要作用，CAP 中会针对发送失败或者执行失败的消息进行重试。在整个 CAP 的设计过程中有以下几处采用的重试策略。</p>
 <p><strong>1、 发送重试</strong></p>
-<p>在消息发送过程中，当出现 Broker 宕机或者连接失败的情况亦或者出现异常的情况下，这个时候 CAP 会对发送的重试，第一次重试次数为 3， 以后每分钟重试一次，进行次数 +1，当总次数达到50次后，CAP将不对其进行重试。</p>
+<p>在消息发送过程中，当出现 Broker 宕机或者连接失败的情况亦或者出现异常的情况下，这个时候 CAP 会对发送的重试，第一次重试次数为 3，4分钟后以后每分钟重试一次，进行次数 +1，当总次数达到50次后，CAP将不对其进行重试。</p>
 <blockquote>
 <p>你可以在 <code class="codehilite">CapOptions</code> 中设置<code class="codehilite">FailedRetryCount</code>来调整默认重试的总次数。</p>
 </blockquote>
@@ -842,7 +842,7 @@
           </a>
         
         
-          <a href="../distributed-transactions/" title="分布式事务" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../transactions/" title="分布式事务" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
