@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#quick-start" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -369,36 +369,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="安装" class="md-nav__link">
-    安装
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#aspnet-core" title="在 Asp.Net Core 中集成" class="md-nav__link">
-    在 Asp.Net Core 中集成
+  <a href="#integrated-in-aspnet-core" title="Integrated in Asp.Net Core" class="md-nav__link">
+    Integrated in Asp.Net Core
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="发送消息" class="md-nav__link">
-    发送消息
+  <a href="#publish-message" title="Publish Message" class="md-nav__link">
+    Publish Message
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="处理消息" class="md-nav__link">
-    处理消息
+  <a href="#process-message" title="Process Message" class="md-nav__link">
+    Process Message
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="摘要" class="md-nav__link">
-    摘要
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -1273,36 +1273,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="安装" class="md-nav__link">
-    安装
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#aspnet-core" title="在 Asp.Net Core 中集成" class="md-nav__link">
-    在 Asp.Net Core 中集成
+  <a href="#integrated-in-aspnet-core" title="Integrated in Asp.Net Core" class="md-nav__link">
+    Integrated in Asp.Net Core
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="发送消息" class="md-nav__link">
-    发送消息
+  <a href="#publish-message" title="Publish Message" class="md-nav__link">
+    Publish Message
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="处理消息" class="md-nav__link">
-    处理消息
+  <a href="#process-message" title="Process Message" class="md-nav__link">
+    Process Message
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="摘要" class="md-nav__link">
-    摘要
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -1326,19 +1326,19 @@
                   <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/en/getting-started/quick-start.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">快速开始<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>了解如何使用 CAP 构建微服务事件总线架构，它比直接集成消息队列提供了哪些优势，它提供了哪些开箱即用的功能。</p>
-<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                <h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
+<p>Learn how to build a microservices event bus architecture using CAP, which offers advantages over direct integration of message queues, and what out-of-the-box features it provides.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">DotNetCore</span><span class="p">.</span><span class="n">CAP</span>
 </pre></div>
 
-<h2 id="aspnet-core">在 Asp.Net Core 中集成<a class="headerlink" href="#aspnet-core" title="Permanent link">&para;</a></h2>
-<p>以便于快速启动，我们使用基于内存的事件存储和消息队列。</p>
+<h2 id="integrated-in-aspnet-core">Integrated in Asp.Net Core<a class="headerlink" href="#integrated-in-aspnet-core" title="Permanent link">&para;</a></h2>
+<p>For quick start, we use memory-based event storage and message transport.</p>
 <div class="codehilite"><pre><span></span><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">DotNetCore</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">InMemoryStorage</span>
 <span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">Savorboard</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">InMemoryMessageQueue</span>
 </pre></div>
 
-<p>在 <code class="codehilite">Startup.cs</code> 中，添加以下配置：</p>
+<p>In <code class="codehilite">Startup.cs</code> ，add the following configuration:</p>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">void</span> <span class="nf">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span>
@@ -1349,7 +1349,7 @@
 <span class="p">}</span>
 </pre></div>
 
-<h2 id="_3">发送消息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="publish-message">Publish Message<a class="headerlink" href="#publish-message" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PublishController</span> <span class="p">:</span> <span class="n">Controller</span>
 <span class="p">{</span>
 <span class="na">    [Route(&quot;~/send&quot;)]</span>
@@ -1362,7 +1362,7 @@
 <span class="p">}</span>
 </pre></div>
 
-<h2 id="_4">处理消息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="process-message">Process Message<a class="headerlink" href="#process-message" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">ConsumerController</span> <span class="p">:</span> <span class="n">Controller</span>
 <span class="p">{</span>
 <span class="na">    [NonAction]</span>
@@ -1374,8 +1374,8 @@
 <span class="p">}</span>
 </pre></div>
 
-<h2 id="_5">摘要<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>相对于直接集成消息队列，异步消息传递最强大的优势之一是可靠性，系统的一个部分中的故障不会传播，也不会导致整个系统崩溃。 在 CAP 内部会将消息进行存储，以保证消息的可靠性，并配合重试等策略以达到各个服务之间的数据最终一致性。</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>One of the most powerful advantages of asynchronous messaging over direct integrated message queues is reliability, where failures in one part of the system do not propagate or cause the entire system to crash. Messages are stored inside the CAP to ensure the reliability of the message, and strategies such as retry are used to achieve the final consistency of data between services.</p>
                 
                   
                 
