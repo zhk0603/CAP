@@ -1,0 +1,1579 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Project documentation with Markdown.">
+      
+      
+        <link rel="canonical" href="http://cap.dotnetcore.xyz/user-guide/zh/cap/idempotence/">
+      
+      
+        <meta name="author" content="CAP Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>幂等性 - CAP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#7e57c2">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#idempotence" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://cap.dotnetcore.xyz" title="CAP" class="md-header-nav__button md-logo">
+          
+            <img src="../../../../img/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              CAP
+            </span>
+            <span class="md-header-nav__topic">
+              
+                幂等性
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dotnetcore/CAP/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../en/getting-started/quick-start/" title="Documentation" class="md-tabs__link">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-started/quick-start/" title="文档（中文）" class="md-tabs__link">
+          文档（中文）
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://cap.dotnetcore.xyz" title="CAP" class="md-nav__button md-logo">
+      
+        <img src="../../../../img/logo.svg" width="48" height="48">
+      
+    </a>
+    CAP
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dotnetcore/CAP/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Getting Stared
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Getting Stared
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/getting-started/quick-start/" title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/getting-started/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/getting-started/contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      CAP
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        CAP
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/messaging/" title="Messaging" class="md-nav__link">
+      Messaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/sagas/" title="Sagas" class="md-nav__link">
+      Sagas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/serialization/" title="Serialization" class="md-nav__link">
+      Serialization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/transactions/" title="Transactions" class="md-nav__link">
+      Transactions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/idempotence/" title="Idempotence" class="md-nav__link">
+      Idempotence
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/upgrade-guides/" title="Upgrade Guides" class="md-nav__link">
+      Upgrade Guides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/cap/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Transports
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Transports
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/transports/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/transports/rabbitmq/" title="RabbitMQ" class="md-nav__link">
+      RabbitMQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/transports/kafka/" title="Apache Kafka®" class="md-nav__link">
+      Apache Kafka®
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/transports/azure-service-bus/" title="Azure Service Bus" class="md-nav__link">
+      Azure Service Bus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/transports/in-memory-queue/" title="In-Memory Queue" class="md-nav__link">
+      In-Memory Queue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Persistent
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Persistent
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/persistent/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/persistent/sqlserver/" title="SQL Server" class="md-nav__link">
+      SQL Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/persistent/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/persistent/postgresql/" title="PostgreSql" class="md-nav__link">
+      PostgreSql
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/persistent/mongodb/" title="MongoDB" class="md-nav__link">
+      MongoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/persistent/in-memory-storage/" title="In-Memory" class="md-nav__link">
+      In-Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      Samples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        Samples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/samples/github/" title="Github" class="md-nav__link">
+      Github
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/samples/eshoponcontainers/" title="eShopOnContainers" class="md-nav__link">
+      eShopOnContainers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../en/samples/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      文档（中文）
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        文档（中文）
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      入门
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        入门
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/quick-start/" title="快速开始" class="md-nav__link">
+      快速开始
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/introduction/" title="介绍" class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/contributing/" title="贡献" class="md-nav__link">
+      贡献
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      CAP
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        CAP
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuration/" title="配置" class="md-nav__link">
+      配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../messaging/" title="消息" class="md-nav__link">
+      消息
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sagas/" title="Sagas" class="md-nav__link">
+      Sagas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../serialization/" title="序列化" class="md-nav__link">
+      序列化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../transactions/" title="传输" class="md-nav__link">
+      传输
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        幂等性
+      </label>
+    
+    <a href="./" title="幂等性" class="md-nav__link md-nav__link--active">
+      幂等性
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="交付保证" class="md-nav__link">
+    交付保证
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-most-once" title="At Most Once" class="md-nav__link">
+    At Most Once
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-least-once" title="At Least Once" class="md-nav__link">
+    At Least Once
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="什么是 “工作事务” ?" class="md-nav__link">
+    什么是 “工作事务” ?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cap" title="CAP 中的幂等性" class="md-nav__link">
+    CAP 中的幂等性
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="为什么没有实现幂等？" class="md-nav__link">
+    为什么没有实现幂等？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="以自然的方式处理幂等消息" class="md-nav__link">
+    以自然的方式处理幂等消息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="显式处理幂等消息" class="md-nav__link">
+    显式处理幂等消息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../upgrade-guides/" title="升级指导" class="md-nav__link">
+      升级指导
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      传输
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        传输
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../transports/general/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../transports/rabbitmq/" title="RabbitMQ" class="md-nav__link">
+      RabbitMQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../transports/kafka/" title="Apache Kafka®" class="md-nav__link">
+      Apache Kafka®
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../transports/azure-service-bus/" title="Azure Service Bus" class="md-nav__link">
+      Azure Service Bus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../transports/in-memory-queue/" title="In-Memory Queue" class="md-nav__link">
+      In-Memory Queue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      持久化
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        持久化
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../persistent/general/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../persistent/sqlserver/" title="SQL Server" class="md-nav__link">
+      SQL Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../persistent/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../persistent/postgresql/" title="PostgreSql" class="md-nav__link">
+      PostgreSql
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../persistent/mongodb/" title="MongoDB" class="md-nav__link">
+      MongoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../persistent/in-memory-storage/" title="In-Memory" class="md-nav__link">
+      In-Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      示例
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        示例
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../samples/github/" title="Github" class="md-nav__link">
+      Github
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../samples/eshoponcontainers/" title="eShopOnContainers" class="md-nav__link">
+      eShopOnContainers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../samples/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="交付保证" class="md-nav__link">
+    交付保证
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-most-once" title="At Most Once" class="md-nav__link">
+    At Most Once
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-least-once" title="At Least Once" class="md-nav__link">
+    At Least Once
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="什么是 “工作事务” ?" class="md-nav__link">
+    什么是 “工作事务” ?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cap" title="CAP 中的幂等性" class="md-nav__link">
+    CAP 中的幂等性
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="为什么没有实现幂等？" class="md-nav__link">
+    为什么没有实现幂等？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="以自然的方式处理幂等消息" class="md-nav__link">
+    以自然的方式处理幂等消息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="显式处理幂等消息" class="md-nav__link">
+    显式处理幂等消息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/zh/cap/idempotence.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="idempotence">Idempotence<a class="headerlink" href="#idempotence" title="Permanent link">&para;</a></h1>
+<p>幂等性（你可以在<a href="https://en.wikipedia.org/wiki/Idempotence">Wikipedia</a>读到关于幂等性的定义），当我们谈论幂等时，一般是指可以重复处理传毒的消息，而不是产生意外的结果。</p>
+<h2 id="_1">交付保证<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在说幂等性之前，我们先来说下关于消费端的消息交付。</p>
+<p>由于CAP不是使用的 MS DTC 或其他类型的2PC分布式事务机制，所以存在至少消息严格交付一次的问题，具体的说在基于消息的系统中，存在一下三种可能：</p>
+<ul>
+<li>Exactly Once(*) （仅有一次）</li>
+<li>At Most Once （最多一次）</li>
+<li>At Least Once （最少一次）</li>
+</ul>
+<p>带 * 号表示在实际场景中，很难达到。</p>
+<h3 id="at-most-once">At Most Once<a class="headerlink" href="#at-most-once" title="Permanent link">&para;</a></h3>
+<p>最多一次交付保证，涵盖了保证一次或根本不接收所有消息的情况。</p>
+<p>这种类型的传递保证可能来自你的消息系统，你的代码按以下顺序执行其操作：</p>
+<div class="codehilite"><pre><span></span>1. 从队列移除消息
+2. 开始一个工作事务
+3. 处理消息 ( 你的代码 )
+4. 是否成功 ?
+    Yes:
+        1. 提交工作事务
+    No: 
+        1. 回滚工作事务
+        2. 将消息发回到队列。
+</pre></div>
+
+<p>正常情况下，他们工作的很好，工作事务将被提交。</p>
+<p>然而，有些时候并不能总是成功，比如在 1 之后出现异常，或者是你在将消息放回到队列中出现网络问题由或者宕机重启等情况。</p>
+<p>使用这个协议，你将冒着丢失消息的风险，如果可以接受，那就没有关系。</p>
+<h3 id="at-least-once">At Least Once<a class="headerlink" href="#at-least-once" title="Permanent link">&para;</a></h3>
+<p>这个交付保证包含你收到至少一次的消息，当出现故障时，可能会收到多次消息。</p>
+<p>它需要稍微改变我们执行步骤的顺序，它要求消息队列系统支持事务或ACK机制，比如传统的 begin-commit-rollback 协议（MSMQ是这样），或者是 receive-ack-nack 协议（RabbitMQ，Azure Service Bus等是这样的）。</p>
+<p>大致步骤如下:</p>
+<div class="codehilite"><pre><span></span>1. 抢占队列中的消息。
+2. 开始一个工作事务
+3. 处理消息 ( 你的代码 )
+4. 是否成功 ?
+    Yes: 
+        1. 提交工作事务
+        2. 从队列删除消息
+    No: 
+        1. 回滚工作事务
+        2. 从队列释放抢占的消息
+</pre></div>
+
+<p>当出现失败或者抢占消息超时的时候，我们总是能够再次接收到消息以保证我们工作事务提交成功。</p>
+<h3 id="_2">什么是 “工作事务” ?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>上面所说的“工作事务”并不是特指关系型数据库中的事务，这里的工作事务是一个概念，也就是说执行代码的原子性。</p>
+<p>比如它可以是传统的RDMS事务，也或者是 MongoDB 事务或者是一个交易等。</p>
+<p>在这里它代表一个执行单元，这个执行单元是一个概念性的事实以支持前面提到的仅交付一次的这种问题。</p>
+<p>通常，不可能做到消息的事务和工作事务来形成原子性进行提交或者回滚。</p>
+<h2 id="cap">CAP 中的幂等性<a class="headerlink" href="#cap" title="Permanent link">&para;</a></h2>
+<p>在CAP中，我们采用的交付保证为 At Least Once。</p>
+<p>由于我们具有临时存储介质（数据库表），也许可以做到 At Most Once, 但是为了严格保证消息不会丢失，我们没有提供相关功能或配置。</p>
+<h3 id="_3">为什么没有实现幂等？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>1、消息写入成功了，但是此时执行Consumer方法失败了</p>
+<p>执行Consumer方法失败的原因有非常多，我如果不知道具体的场景盲目进行重试或者不进行重试都是不正确的选择。
+举个例子：假如消费者为扣款服务，如果是执行扣款成功了，但是在写扣款日志的时候失败了，此时CAP会判断为消费者执行失败，进行重试。如果客户端自己没有保证幂等性，框架对其进行重试，这里势必会造成多次扣款出现严重后果。</p>
+<p>2、执行Consumer方法成功了，但是又收到了同样的消息</p>
+<p>此处场景也是可能存在的，假如开始的时候Consumer已经执行成功了，但是由于某种原因如 Broker 宕机恢复等，又收到了相同的消息，CAP 在收到Broker消息后会认为这个是一个新的消息，会对 Consumer再次执行，由于是新消息，此时 CAP 也是无法做到幂等的。</p>
+<p>3、目前的数据存储模式无法做到幂等</p>
+<p>由于CAP存消息的表对于成功消费的消息会于1个小时后删除，所以如果对于一些历史性消息无法做到幂等操作。 历史性指的是，假如 Broker由于某种原因维护了或者是人工处理的一些消息。</p>
+<p>4、业界做法</p>
+<p>许多基于事件驱动的框架都是要求 用户 来保证幂等性操作的，比如 ENode, RocketMQ 等等...</p>
+<p>从实现的角度来说，CAP可以做一些比较不严格的幂等，但是严格的幂等无法做到的。</p>
+<h3 id="_4">以自然的方式处理幂等消息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>通常情况下，保证消息被执行多次而不会产生意外结果是很自然的一种方式是采用操作对象自带的一些幂等功能。比如：</p>
+<p>数据库提供的 <code class="codehilite">INSERT ON DUPLICATE KEY UPDATE</code> 或者是采取类型的程序判断行为。</p>
+<h3 id="_5">显式处理幂等消息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>另外一种处理幂等性的方式就是在消息传递的过程中传递ID，然后由单独的消息跟踪器来处理。 </p>
+<p>比如你使用具有事务数据存储的 IMessageTracker 来跟踪消息ID，你的代码可能看起来像这样：</p>
+<div class="codehilite"><pre><span></span><span class="k">readonly</span> <span class="n">IMessageTracker</span> <span class="n">_messageTracker</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="nf">SomeMessageHandler</span><span class="p">(</span><span class="n">IMessageTracker</span> <span class="n">messageTracker</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">_messageTracker</span> <span class="p">=</span> <span class="n">messageTracker</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="na">[CapSubscribe]</span>
+<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Handle</span><span class="p">(</span><span class="n">SomeMessage</span> <span class="n">message</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">await</span> <span class="n">_messageTracker</span><span class="p">.</span><span class="n">HasProcessed</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">Id</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// do the work here</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// remember that this message has been processed</span>
+    <span class="k">await</span> <span class="n">_messageTracker</span><span class="p">.</span><span class="n">MarkAsProcessed</span><span class="p">(</span><span class="n">messageId</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>至于 <code class="codehilite">IMessageTracker</code> 的实现，可以使用诸如Redis或者数据库等存储消息Id和对应的处理状态。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../transactions/" title="传输" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                传输
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../upgrade-guides/" title="升级指导" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                升级指导
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 <a href="https://github.com/dotnetcore">.NET Core Community</a>, Maintained by the <a href="/about/contact-us/#cap-team">CAP Team</a>.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dotnetcore/CAP" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/ncc_community" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://weibo.com/dotnetcore" class="md-footer-social__link fa fa-weibo"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
