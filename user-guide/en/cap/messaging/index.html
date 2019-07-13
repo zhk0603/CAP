@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#message" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -236,6 +236,19 @@
     </li>
   
 
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../about/contact-us/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
   
 
       
@@ -441,29 +454,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="消息调度" class="md-nav__link">
-    消息调度
+  <a href="#scheduling" title="Scheduling" class="md-nav__link">
+    Scheduling
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="消息存储" class="md-nav__link">
-    消息存储
+  <a href="#persistent" title="Persistent" class="md-nav__link">
+    Persistent
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="消息重试" class="md-nav__link">
-    消息重试
+  <a href="#retry" title="Retry" class="md-nav__link">
+    Retry
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#send-retry" title="Send retry" class="md-nav__link">
+    Send retry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumption-retry" title="Consumption retry" class="md-nav__link">
+    Consumption retry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="消息数据清理" class="md-nav__link">
-    消息数据清理
+  <a href="#data-cleanup" title="Data Cleanup" class="md-nav__link">
+    Data Cleanup
   </a>
   
 </li>
@@ -523,30 +556,6 @@
   <li class="md-nav__item">
     <a href="../idempotence/" title="Idempotence" class="md-nav__link">
       Idempotence
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../upgrade-guides/" title="Upgrade Guides" class="md-nav__link">
-      Upgrade Guides
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../license/" title="License" class="md-nav__link">
-      License
     </a>
   </li>
 
@@ -746,10 +755,58 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
     
     <label class="md-nav__link" for="nav-2-5">
-      Samples
+      Monitoring
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-5">
+        Monitoring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/dashboard/" title="Dashboard" class="md-nav__link">
+      Dashboard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/diagnostics/" title="Diagnostics" class="md-nav__link">
+      Diagnostics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6">
+    
+    <label class="md-nav__link" for="nav-2-6">
+      Samples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-6">
         Samples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -971,30 +1028,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../zh/cap/upgrade-guides/" title="升级指导" class="md-nav__link">
-      升级指导
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../zh/cap/license/" title="License" class="md-nav__link">
-      License
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -1190,10 +1223,94 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
     
     <label class="md-nav__link" for="nav-3-5">
-      示例
+      监控
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-5">
+        监控
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../zh/monitoring/consul/" title="Consul" class="md-nav__link">
+      Consul
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../zh/monitoring/dashboard/" title="Dashboard" class="md-nav__link">
+      Dashboard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../zh/monitoring/diagnostics/" title="Diagnostics" class="md-nav__link">
+      Diagnostics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../zh/monitoring/health-checks/" title="健康检查" class="md-nav__link">
+      健康检查
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../zh/monitoring/metrics/" title="Metrics" class="md-nav__link">
+      Metrics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      示例
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
         示例
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1245,6 +1362,66 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/contact-us/" title="Contact Us" class="md-nav__link">
+      Contact Us
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/release-notes/" title="Release Notes" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1266,29 +1443,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="消息调度" class="md-nav__link">
-    消息调度
+  <a href="#scheduling" title="Scheduling" class="md-nav__link">
+    Scheduling
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="消息存储" class="md-nav__link">
-    消息存储
+  <a href="#persistent" title="Persistent" class="md-nav__link">
+    Persistent
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="消息重试" class="md-nav__link">
-    消息重试
+  <a href="#retry" title="Retry" class="md-nav__link">
+    Retry
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#send-retry" title="Send retry" class="md-nav__link">
+    Send retry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumption-retry" title="Consumption retry" class="md-nav__link">
+    Consumption retry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="消息数据清理" class="md-nav__link">
-    消息数据清理
+  <a href="#data-cleanup" title="Data Cleanup" class="md-nav__link">
+    Data Cleanup
   </a>
   
 </li>
@@ -1312,25 +1509,27 @@
                   <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/en/cap/messaging.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">消息<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>使用 <code class="codehilite">ICapPublisher</code> 接口发送出去的数据称之为 Message (<code class="codehilite">消息</code>)。</p>
-<h2 id="_2">消息调度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>CAP 接收到消息之后会将消息发送到 Transport, 由 Transport 进行运输。</p>
-<p>当你使用 <code class="codehilite">ICapPublisher</code> 接口发送时，CAP将会将消息调度到相应的 Transport中去，目前还不支持批量发送消息。</p>
-<p>有关 Transports 的更多信息，可以查看 <a href="../../transports/general/">Transports</a> 章节。</p>
-<h2 id="_3">消息存储<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>CAP 接收到消息之后会将消息进行 Persistent（持久化）， 有关 Persistent 的更多信息，可以查看 <a href="../../persistent/general/">Persistent</a> 章节。</p>
-<h2 id="_4">消息重试<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>重试在整个CAP架构设计中具有重要作用，CAP 中会针对发送失败或者执行失败的消息进行重试。在整个 CAP 的设计过程中有以下几处采用的重试策略。</p>
-<p>1、 发送重试</p>
-<p>在消息发送过程中，当出现 Broker 宕机或者连接失败的情况亦或者出现异常的情况下，这个时候 CAP 会对发送的重试，第一次重试次数为 3，4分钟后以后每分钟重试一次，进行次数 +1，当总次数达到50次后，CAP将不对其进行重试。</p>
-<p>你可以在 CapOptions 中设置FailedRetryCount来调整默认重试的总次数。</p>
-<p>当失败总次数达到默认失败总次数后，就不会进行重试了，你可以在 Dashboard 中查看消息失败的原因，然后进行人工重试处理。</p>
-<p>2、 消费重试</p>
-<p>当 Consumer 接收到消息时，会执行消费者方法，在执行消费者方法出现异常时，会进行重试。这个重试策略和上面的 发送重试 是相同的。</p>
-<h2 id="_5">消息数据清理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>数据库消息表中具有一个 ExpiresAt 字段表示消息的过期时间，当消息发送成功或者消费成功后，CAP会将消息状态为 Successed 的 ExpiresAt 设置为 1小时 后过期，会将消息状态为 Failed 的 ExpiresAt 设置为 15天 后过期。</p>
-<p>CAP 默认情况下会每隔一个小时将消息表的数据进行清理删除，避免数据量过多导致性能的降低。清理规则为 ExpiresAt 不为空并且小于当前时间的数据。 也就是说状态为Failed的消息（正常情况他们已经被重试了 50 次），如果你15天没有人工介入处理，同样会被清理掉。</p>
+                <h1 id="message">Message<a class="headerlink" href="#message" title="Permanent link">&para;</a></h1>
+<p>The data sent by using the <code class="codehilite">ICapPublisher</code> interface is called <code class="codehilite">Message</code>.</p>
+<h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
+<p>After the CAP receives the message, it sends the message to Transport, which is transported by transport.</p>
+<p>When you send using the <code class="codehilite">ICapPublisher</code> interface, the CAP will dispatch the message to the corresponding Transport. Currently, bulk messaging is not supported.</p>
+<p>For more information on transports, see the <a href="../../transports/general/">Transports</a> section.</p>
+<h2 id="persistent">Persistent<a class="headerlink" href="#persistent" title="Permanent link">&para;</a></h2>
+<p>The CAP will storage after receiving the message. For more information on storage, see the <a href="../../persistent/general/">Persistent</a> section.</p>
+<h2 id="retry">Retry<a class="headerlink" href="#retry" title="Permanent link">&para;</a></h2>
+<p>Retrying plays an important role in the overall CAP architecture design, and CAPs retry for messages that fail to send or fail to execute. There are several retry strategies used throughout the CAP design process.</p>
+<h3 id="send-retry">Send retry<a class="headerlink" href="#send-retry" title="Permanent link">&para;</a></h3>
+<p>During the message sending process, when the broker crashes or the connection fails or an abnormality occurs, the CAP will retry the sending. Retry 3 times for the first time, retry every minute after 4 minutes, and +1 retries. When the total number of times reaches 50, the CAP will stop retrying.</p>
+<p>You can adjust the total number of default retries by setting <code class="codehilite">FailedRetryCount</code> in CapOptions.</p>
+<p>It will stop when the maximum number of times is reached. You can see the reason for the failure in Dashboard and choose whether to manually retry.</p>
+<h3 id="consumption-retry">Consumption retry<a class="headerlink" href="#consumption-retry" title="Permanent link">&para;</a></h3>
+<p>The consumer method is executed when the Consumer receives the message and will retry when an exception occurs. This retry strategy is the same as the send retry.</p>
+<h2 id="data-cleanup">Data Cleanup<a class="headerlink" href="#data-cleanup" title="Permanent link">&para;</a></h2>
+<p>There is an <code class="codehilite">ExpiresAt</code> field in the database message table indicating the expiration time of the message. When the message is sent successfully, the status will be changed to <code class="codehilite">Successed</code>, and <code class="codehilite">ExpiresAt</code> will be set to <strong>1 hour</strong> later. </p>
+<p>Consuming failure will change the message status to <code class="codehilite">Failed</code> and <code class="codehilite">ExpiresAt</code> will be set to <strong>15 days</strong> later.</p>
+<p>By default, the data of the message table is deleted <strong>every hour</strong> to avoid performance degradation caused by too much data. The cleanup strategy is <code class="codehilite">ExpiresAt</code> is not empty and is less than the current time. </p>
+<p>That is to say, the message with the status Failed (normally they have been retried 50 times), if you do not have manual intervention for 15 days, it will <strong>also be</strong> cleaned up.</p>
                 
                   
                 
