@@ -2,287 +2,287 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>http://cap.dotnetcore.xyz/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/getting-started/quick-start/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/getting-started/introduction/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/getting-started/contributing/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/cap/configuration/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/cap/messaging/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/cap/sagas/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/cap/serialization/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/cap/transactions/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/cap/idempotence/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/transports/general/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/transports/rabbitmq/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/transports/kafka/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/transports/azure-service-bus/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/transports/in-memory-queue/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/persistent/general/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/persistent/sqlserver/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/persistent/mysql/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/persistent/postgresql/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/persistent/mongodb/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/persistent/in-memory-storage/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/monitoring/dashboard/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/monitoring/diagnostics/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/samples/github/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/samples/eshoponcontainers/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/en/samples/faq/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/getting-started/quick-start/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/getting-started/introduction/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/getting-started/contributing/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/cap/configuration/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/cap/messaging/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/cap/sagas/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/cap/serialization/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/cap/transactions/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/cap/idempotence/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/transports/general/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/transports/rabbitmq/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/transports/kafka/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/transports/azure-service-bus/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/transports/in-memory-queue/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/persistent/general/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/persistent/sqlserver/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/persistent/mysql/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/persistent/postgresql/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/persistent/mongodb/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/persistent/in-memory-storage/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/monitoring/consul/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/monitoring/dashboard/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/monitoring/diagnostics/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/monitoring/health-checks/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/monitoring/metrics/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/samples/github/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/samples/eshoponcontainers/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/user-guide/zh/samples/faq/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/about/contact-us/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/about/release-notes/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://cap.dotnetcore.xyz/about/license/</loc>
-     <lastmod>2019-07-13</lastmod>
+     <lastmod>2019-07-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

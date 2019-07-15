@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#transaction" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -490,17 +490,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="分布式事务?" class="md-nav__link">
-    分布式事务?
+  <a href="#distributed-transactions" title="Distributed transactions?" class="md-nav__link">
+    Distributed transactions?
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="异步确保" class="md-nav__link">
-    异步确保
+  <a href="#eventual-consistency-and-compensation-1" title="Eventual Consistency and Compensation 1" class="md-nav__link">
+    Eventual Consistency and Compensation 1
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-case-for-eventual-consistency" title="A Case for Eventual Consistency" class="md-nav__link">
+    A Case for Eventual Consistency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#happy-scenario" title="Happy Scenario" class="md-nav__link">
+    Happy Scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-scenarios" title="Failure Scenarios" class="md-nav__link">
+    Failure Scenarios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1415,17 +1442,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="分布式事务?" class="md-nav__link">
-    分布式事务?
+  <a href="#distributed-transactions" title="Distributed transactions?" class="md-nav__link">
+    Distributed transactions?
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="异步确保" class="md-nav__link">
-    异步确保
+  <a href="#eventual-consistency-and-compensation-1" title="Eventual Consistency and Compensation 1" class="md-nav__link">
+    Eventual Consistency and Compensation 1
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-case-for-eventual-consistency" title="A Case for Eventual Consistency" class="md-nav__link">
+    A Case for Eventual Consistency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#happy-scenario" title="Happy Scenario" class="md-nav__link">
+    Happy Scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-scenarios" title="Failure Scenarios" class="md-nav__link">
+    Failure Scenarios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1453,20 +1507,65 @@
                   <a href="https://github.com/dotnetcore/CAP/edit/master/docs/user-guide/en/cap/transactions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">事务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">分布式事务?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>CAP 不直接提供开箱即用的基于 DTC 或者 2PC 的分布式事务，相反我们提供一种可以用于解决在分布式事务遇到的问题的一种解决方案。</p>
-<p>在分布式环境中，由于涉及通讯的开销，使用基于2PC或DTC的分布式事务将非常昂贵，在性能方面也同样如此。另外由于基于2PC或DTC的分布式事务同样受**CAP定理**的约束，当发生网络分区时它将不得不放弃可用性(CAP中的A)。</p>
-<p>针对于分布式事务的处理，CAP 采用的是“异步确保”这种方案。</p>
-<h3 id="_3">异步确保<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>异步确保这种方案又叫做本地消息表，这是一种经典的方案，方案最初来源于 eBay，参考资料见段末链接。这种方案目前也是企业中使用最多的方案之一。</p>
-<p>相对于 TCC 或者 2PC/3PC 来说，这个方案对于分布式事务来说是最简单的，而且它是去中心化的。在TCC 或者 2PC 的方案中，必须具有事务协调器来处理每个不同服务之间的状态，而此种方案不需要事务协调器。
-另外 2PC/TCC 这种方案如果服务依赖过多，会带来管理复杂性增加和稳定性风险增大的问题。试想如果我们强依赖 10 个服务，9 个都执行成功了，最后一个执行失败了，那么是不是前面 9 个都要回滚掉？这个成本还是非常高的。</p>
-<p>但是，并不是说 2PC 或者 TCC 这种方案不好，因为每一种方案都有其相对优势的使用场景和优缺点，这里就不做过多介绍了。</p>
+                <h1 id="transaction">Transaction<a class="headerlink" href="#transaction" title="Permanent link">&para;</a></h1>
+<h2 id="distributed-transactions">Distributed transactions?<a class="headerlink" href="#distributed-transactions" title="Permanent link">&para;</a></h2>
+<p>CAP does not directly provide out-of-the-box MS DTC or 2PC-based distributed transactions, instead we provide a solution that can be used to solve problems encountered in distributed transactions.</p>
+<p>In a distributed environment, using 2PC or DTC-based distributed transactions can be very expensive due to the overhead involved in communication, as is performance. In addition, since distributed transactions based on 2PC or DTC are also subject to the <strong>CAP theorem</strong>, it will have to give up availability (A in CAP) when network partitioning occurs.</p>
 <blockquote>
-<p>中文：<a href="http://www.cnblogs.com/savorboard/p/base-an-acid-alternative.html">http://www.cnblogs.com/savorboard/p/base-an-acid-alternative.html</a><br />
-英文：<a href="http://queue.acm.org/detail.cfm?id=1394128">http://queue.acm.org/detail.cfm?id=1394128</a></p>
+<p>A distributed transaction is a very complex process with a lot of moving parts that can fail. Also, if these parts run on different machines or even in different data centers, the process of committing a transaction could become very long and unreliable.</p>
+<p>This could seriously affect the user experience and overall system bandwidth. So <strong>one of the best ways to solve the problem of distributed transactions is to avoid them completely</strong>.<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
 </blockquote>
+<p>For the processing of distributed transactions, CAP uses the "Eventual Consistency and Compensation" scheme.</p>
+<h3 id="eventual-consistency-and-compensation-1">Eventual Consistency and Compensation <sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup><a class="headerlink" href="#eventual-consistency-and-compensation-1" title="Permanent link">&para;</a></h3>
+<p>By far, one of the most feasible models of handling consistency across microservices is <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>.</p>
+<p>This model doesn’t enforce distributed ACID transactions across microservices. Instead, it proposes to use some mechanisms of ensuring that the system would be eventually consistent at some point in the future.</p>
+<h4 id="a-case-for-eventual-consistency">A Case for Eventual Consistency<a class="headerlink" href="#a-case-for-eventual-consistency" title="Permanent link">&para;</a></h4>
+<p>For example, suppose we need to solve the following task:</p>
+<ul>
+<li>register a user profile  </li>
+<li>do some automated background check that the user can actually access the system</li>
+</ul>
+<p>The second task is to ensure, for example, that this user wasn’t banned from our servers for some reason.</p>
+<p>But it could take time, and we’d like to extract it to a separate microservice. It wouldn’t be reasonable to keep the user waiting for so long just to know that she was registered successfully.</p>
+<p><strong>One way to solve it would be with a message-driven approach including compensation</strong>. Let’s consider the following architecture:</p>
+<ul>
+<li>the user microservice tasked with registering a user profile  </li>
+<li>the validation microservice tasked with doing a background check  </li>
+<li>the messaging platform that supports persistent queues  </li>
+</ul>
+<p>The messaging platform could ensure that the messages sent by the microservices are persisted. Then they would be delivered at a later time if the receiver weren’t currently available</p>
+<h4 id="happy-scenario">Happy Scenario<a class="headerlink" href="#happy-scenario" title="Permanent link">&para;</a></h4>
+<p>In this architecture, a happy scenario would be:</p>
+<ul>
+<li>the user microservice registers a user, saving information about her in its local database</li>
+<li>the user microservice marks this user with a flag. It could signify that this user hasn’t yet been validated and doesn’t have access to full system functionality</li>
+<li>a confirmation of registration is sent to the user with a warning that not all functionality of the system is accessible right away</li>
+<li>the user microservice sends a message to the validation microservice to do the background check of a user</li>
+<li>the validation microservice runs the background check and sends a message to the user microservice with the results of the check</li>
+<li>if the results are positive, the user microservice unblocks the user</li>
+<li>if the results are negative, the user microservice deletes the user account</li>
+</ul>
+<p>After we’ve gone through all these steps, the system should be in a consistent state. However, for some period of time, the user entity appeared to be in an incomplete state.</p>
+<p>The last step, when the user microservice removes the invalid account, is a compensation phase.</p>
+<h4 id="failure-scenarios">Failure Scenarios<a class="headerlink" href="#failure-scenarios" title="Permanent link">&para;</a></h4>
+<p>Now let’s consider some failure scenarios:</p>
+<ul>
+<li>if the validation microservice is not accessible, then the messaging platform with its persistent queue functionality ensures that the validation microservice would receive this message at some later time</li>
+<li>suppose the messaging platform fails, then the user microservice tries to send the message again at some later time, for example, by scheduled batch-processing of all users that were not yet validated</li>
+<li>if the validation microservice receives the message, validates the user but can’t send the answer back due to the messaging platform failure, the validation microservice also retries sending the message at some later time</li>
+<li>if one of the messages got lost, or some other failure happened, the user microservice finds all non-validated users by scheduled batch-processing and sends requests for validation again</li>
+</ul>
+<p>Even if some of the messages were issued multiple times, this wouldn’t affect the consistency of the data in the microservices’ databases.</p>
+<p><strong>By carefully considering all possible failure scenarios, we can ensure that our system would satisfy the conditions of eventual consistency. At the same time, we wouldn’t need to deal with the costly distributed transactions.</strong></p>
+<p>But we have to be aware that ensuring eventual consistency is a complex task. It doesn’t have a single solution for all cases.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This chapter is quoted from: <a href="https://www.baeldung.com/transactions-across-microservices">https://www.baeldung.com/transactions-across-microservices</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
