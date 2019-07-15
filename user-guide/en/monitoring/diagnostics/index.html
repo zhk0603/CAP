@@ -730,8 +730,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cap-diagnostics" title="CAP 中的 Diagnostics" class="md-nav__link">
-    CAP 中的 Diagnostics
+  <a href="#diagnostics-events" title="Diagnostics events" class="md-nav__link">
+    Diagnostics events
   </a>
   
 </li>
@@ -1402,8 +1402,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cap-diagnostics" title="CAP 中的 Diagnostics" class="md-nav__link">
-    CAP 中的 Diagnostics
+  <a href="#diagnostics-events" title="Diagnostics events" class="md-nav__link">
+    Diagnostics events
   </a>
   
 </li>
@@ -1428,24 +1428,24 @@
                 
                 
                 <h1 id="diagnostics">Diagnostics<a class="headerlink" href="#diagnostics" title="Permanent link">&para;</a></h1>
-<p>Diagnostics 提供一组功能使我们能够很方便的可以记录在应用程序运行期间发生的关键性操作以及他们的执行时间等，使管理员可以查找特别是生产环境中出现问题所在的根本原因。</p>
-<h2 id="cap-diagnostics">CAP 中的 Diagnostics<a class="headerlink" href="#cap-diagnostics" title="Permanent link">&para;</a></h2>
-<p>在 CAP 中，对 <code class="codehilite">DiagnosticSource</code> 提供了支持，监听器名称为 <code class="codehilite">CapDiagnosticListener</code>。</p>
-<p>Diagnostics 提供对外提供的事件信息有：</p>
+<p>Diagnostics provides a set of features that make it easy for us to document the critical operations that occur during the application's operation, their execution time, etc., allowing administrators to find the root cause of problems, especially in production environments.</p>
+<h2 id="diagnostics-events">Diagnostics events<a class="headerlink" href="#diagnostics-events" title="Permanent link">&para;</a></h2>
+<p>The CAP provides support for <code class="codehilite">DiagnosticSource</code> with a listener name of <code class="codehilite">CapDiagnosticListener</code>.</p>
+<p>Diagnostics provides external event information as follows:</p>
 <ul>
-<li>消息持久化之前</li>
-<li>消息持久化之后</li>
-<li>消息持久化异常</li>
-<li>消息向MQ发送之前</li>
-<li>消息向MQ发送之后</li>
-<li>消息向MQ发送异常</li>
-<li>消息从MQ消费保存之前</li>
-<li>消息从MQ消费保存之后</li>
-<li>订阅者方法执行之前</li>
-<li>订阅者方法执行之后</li>
-<li>订阅者方法执行异常</li>
+<li>Before the message is persisted</li>
+<li>After the message is persisted</li>
+<li>Message persistence exception</li>
+<li>Before the message is sent to MQ</li>
+<li>After the message is sent to MQ</li>
+<li>The message sends an exception to MQ.</li>
+<li>Messages saved from MQ consumption before saving</li>
+<li>After the message is saved from MQ consumption</li>
+<li>Before the subscriber method is executed</li>
+<li>After the subscriber method is executed</li>
+<li>Subscriber method execution exception</li>
 </ul>
-<p>相关涉及到的对象，你可以在 <code class="codehilite">DotNetCore.CAP.Diagnostics</code> 命名空间下看到。</p>
+<p>Related objects, you can find at the <code class="codehilite">DotNetCore.CAP.Diagnostics</code> namespace.</p>
                 
                   
                 

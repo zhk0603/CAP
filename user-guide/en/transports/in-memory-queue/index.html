@@ -1431,7 +1431,7 @@
 <p>In Memory Queue is a memory-based message queue provided by <a href="https://github.com/yang-xiaodong/Savorboard.CAP.InMemoryMessageQueue">Community</a>.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>To use In Memory Queue as a message transporter, you need to install the following extensions from NuGet:</p>
-<p><div class="codehilite"><pre><span></span>Install-Package Savorboard.CAP.InMemoryMessageQueue
+<p><div class="codehilite"><pre><span></span><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">Savorboard</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">InMemoryMessageQueue</span>
 </pre></div>
 Then you can add memory-based configuration items to the <code class="codehilite">ConfigureServices</code> method of <code class="codehilite">Startup.cs</code>.</p>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">void</span> <span class="nf">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>

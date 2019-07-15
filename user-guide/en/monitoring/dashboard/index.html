@@ -718,23 +718,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dashboard_1" title="启用 Dashboard" class="md-nav__link">
-    启用 Dashboard
+  <a href="#enable-dashboard" title="Enable Dashboard" class="md-nav__link">
+    Enable Dashboard
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dashboard_2" title="Dashboard 配置项" class="md-nav__link">
-    Dashboard 配置项
+  <a href="#dashboard-configuration" title="Dashboard Configuration" class="md-nav__link">
+    Dashboard Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" title="自定义认证" class="md-nav__link">
-    自定义认证
+  <a href="#custom-authentication" title="Custom authentication" class="md-nav__link">
+    Custom authentication
   </a>
   
 </li>
@@ -1422,23 +1422,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dashboard_1" title="启用 Dashboard" class="md-nav__link">
-    启用 Dashboard
+  <a href="#enable-dashboard" title="Enable Dashboard" class="md-nav__link">
+    Enable Dashboard
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dashboard_2" title="Dashboard 配置项" class="md-nav__link">
-    Dashboard 配置项
+  <a href="#dashboard-configuration" title="Dashboard Configuration" class="md-nav__link">
+    Dashboard Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" title="自定义认证" class="md-nav__link">
-    自定义认证
+  <a href="#custom-authentication" title="Custom authentication" class="md-nav__link">
+    Custom authentication
   </a>
   
 </li>
@@ -1468,9 +1468,9 @@
                 
                 
                 <h1 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h1>
-<p>CAP 原生提供了 Dashboard 供查看消息，利用 Dashboard 提供的功能可以很方便的查看和管理消息。</p>
-<h2 id="dashboard_1">启用 Dashboard<a class="headerlink" href="#dashboard_1" title="Permanent link">&para;</a></h2>
-<p>默认情况下，不会启动Dashboard中间件，要开启Dashboard功能你需要在配置中添加如下代码：</p>
+<p>The CAP provides a Dashboard for viewing messages, and the features provided by Dashboard make it easy to view and manage messages.</p>
+<h2 id="enable-dashboard">Enable Dashboard<a class="headerlink" href="#enable-dashboard" title="Permanent link">&para;</a></h2>
+<p>By default, Dashboard middleware will not be launched. To enable Dashboard functionality you need to add the following code to your configuration:</p>
 <div class="codehilite"><pre><span></span><span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span>
 <span class="p">{</span>
     <span class="c1">//...</span>
@@ -1480,25 +1480,29 @@
 <span class="p">});</span>
 </pre></div>
 
-<p>默认情况下，你可以访问 <code class="codehilite">http://localhost:xxx/cap</code> 这个地址打开Dashboard。 </p>
-<h3 id="dashboard_2">Dashboard 配置项<a class="headerlink" href="#dashboard_2" title="Permanent link">&para;</a></h3>
+<p>By default, you can open the Dashboard by visiting the url <code class="codehilite">http://localhost:xxx/cap</code>.</p>
+<h3 id="dashboard-configuration">Dashboard Configuration<a class="headerlink" href="#dashboard-configuration" title="Permanent link">&para;</a></h3>
 <ul>
 <li>PathMatch</li>
 </ul>
-<p>默认值：'/cap'</p>
-<p>你可以通过修改此配置项来更改Dashboard的访问路径。</p>
+<blockquote>
+<p>Default ：'/cap'</p>
+</blockquote>
+<p>You can change the path of the Dashboard by modifying this configuration item.</p>
 <ul>
 <li>StatsPollingInterval</li>
 </ul>
-<p>默认值：2000 毫秒</p>
-<p>此配置项用来配置Dashboard 前端 获取状态接口(/stats)的轮询时间</p>
+<blockquote>
+<p>Default: 2000ms</p>
+</blockquote>
+<p>This configuration item is used to configure the Dashboard front end to get the polling time of the status interface (/stats).</p>
 <ul>
 <li>Authorization</li>
 </ul>
-<p>此配置项用来配置访问 Dashboard 时的授权过滤器，默认过滤器允许局域网访问，当你的应用想提供外网访问时候，可以通过设置此配置来自定义认证规则。详细参看下一节</p>
-<h3 id="_1">自定义认证<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>通过实现 <code class="codehilite">IDashboardAuthorizationFilter</code> 接口可以自定义Dashboard认证。</p>
-<p>以下是一个示例代码，通过从url请求参数中读取 accesskey 判断是否允许访问。</p>
+<p>This configuration item is used to configure the authorization filter when accessing the Dashboard. The default filter allows LAN access. When your application wants to provide external network access, you can customize the authentication rules by setting this configuration. See the next section for details.</p>
+<h3 id="custom-authentication">Custom authentication<a class="headerlink" href="#custom-authentication" title="Permanent link">&para;</a></h3>
+<p>Dashboard authentication can be customized by implementing the <code class="codehilite">IDashboardAuthorizationFilter</code> interface.</p>
+<p>The following is a sample code that determines if access is allowed by reading the accesskey from the url request parameter.</p>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">TestAuthorizationFilter</span> <span class="p">:</span> <span class="n">IDashboardAuthorizationFilter</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">bool</span> <span class="nf">Authorize</span><span class="p">(</span><span class="n">DashboardContext</span> <span class="n">context</span><span class="p">)</span>
@@ -1511,7 +1515,7 @@
 <span class="p">}</span>
 </pre></div>
 
-<p>然后在修改注册 Dashboard 时候配置此过滤对象。</p>
+<p>Then configure this filter when registration Dashboard.</p>
 <div class="codehilite"><pre><span></span><span class="n">services</span><span class="p">.</span><span class="n">AddCap</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span>
 <span class="p">{</span>
     <span class="c1">//...</span>

@@ -1458,14 +1458,14 @@
 <p>CAP supports Azure Service Bus as a message transporter.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
-<p class="admonition-title">必要条件</p>
-<p>针对 Service Bus 定价层, CAP 要求使用 “标准” 或者 “高级” 以支持 Topic 功能。</p>
+<p class="admonition-title">Requirement</p>
+<p>For the Service Bus pricing layer, CAP requires "standard" or "advanced" to support Topic functionality.</p>
 </div>
-<p>要使用 Azure Service Bus 作为消息传输器，你需要从 NuGet 安装以下扩展包：</p>
-<div class="codehilite"><pre><span></span>Install-Package DotNetCore.CAP.AzureServiceBus
+<p>To use Azure Service Bus as a message transport, you need to install the following extensions from NuGet:</p>
+<div class="codehilite"><pre><span></span><span class="n">PM</span><span class="p">&gt;</span> <span class="nb">Install-Package</span> <span class="n">DotNetCore</span><span class="p">.</span><span class="n">CAP</span><span class="p">.</span><span class="n">AzureServiceBus</span>
 </pre></div>
 
-<p>然后，你可以在 <code class="codehilite">Startup.cs</code> 的 <code class="codehilite">ConfigureServices</code> 方法中添加基于内存的配置项。</p>
+<p>Then you can add memory-based configuration items to the <code class="codehilite">ConfigureServices</code> method of <code class="codehilite">Startup.cs</code>.</p>
 <div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">void</span> <span class="nf">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// ...</span>
@@ -1482,7 +1482,7 @@
 </pre></div>
 
 <h4 id="azureservicebus-options">AzureServiceBus Options<a class="headerlink" href="#azureservicebus-options" title="Permanent link">&para;</a></h4>
-<p>CAP 直接对外提供的 Kafka 配置参数如下：</p>
+<p>The AzureServiceBus configuration options provided directly by the CAP are as follows:</p>
 <table>
 <thead>
 <tr>
@@ -1495,7 +1495,7 @@
 <tbody>
 <tr>
 <td align="left">ConnectionString</td>
-<td align="left">Endpoint 地址</td>
+<td align="left">Endpoint address</td>
 <td>string</td>
 <td align="left"></td>
 </tr>
@@ -1507,7 +1507,7 @@
 </tr>
 <tr>
 <td align="left">ManagementTokenProvider</td>
-<td align="left">Token提供</td>
+<td align="left">Token provider</td>
 <td>ITokenProvider</td>
 <td align="left">null</td>
 </tr>
