@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#idempotence" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -970,7 +970,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="交付保证" class="md-nav__link">
+  <a href="#_2" title="交付保证" class="md-nav__link">
     交付保证
   </a>
   
@@ -992,7 +992,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" title="什么是 “工作事务” ?" class="md-nav__link">
+  <a href="#_3" title="什么是 “工作事务” ?" class="md-nav__link">
     什么是 “工作事务” ?
   </a>
   
@@ -1012,21 +1012,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="为什么没有实现幂等？" class="md-nav__link">
+  <a href="#_4" title="为什么没有实现幂等？" class="md-nav__link">
     为什么没有实现幂等？
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="以自然的方式处理幂等消息" class="md-nav__link">
+  <a href="#_5" title="以自然的方式处理幂等消息" class="md-nav__link">
     以自然的方式处理幂等消息
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="显式处理幂等消息" class="md-nav__link">
+  <a href="#_6" title="显式处理幂等消息" class="md-nav__link">
     显式处理幂等消息
   </a>
   
@@ -1463,7 +1463,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="交付保证" class="md-nav__link">
+  <a href="#_2" title="交付保证" class="md-nav__link">
     交付保证
   </a>
   
@@ -1485,7 +1485,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" title="什么是 “工作事务” ?" class="md-nav__link">
+  <a href="#_3" title="什么是 “工作事务” ?" class="md-nav__link">
     什么是 “工作事务” ?
   </a>
   
@@ -1505,21 +1505,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="为什么没有实现幂等？" class="md-nav__link">
+  <a href="#_4" title="为什么没有实现幂等？" class="md-nav__link">
     为什么没有实现幂等？
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="以自然的方式处理幂等消息" class="md-nav__link">
+  <a href="#_5" title="以自然的方式处理幂等消息" class="md-nav__link">
     以自然的方式处理幂等消息
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="显式处理幂等消息" class="md-nav__link">
+  <a href="#_6" title="显式处理幂等消息" class="md-nav__link">
     显式处理幂等消息
   </a>
   
@@ -1549,11 +1549,11 @@
                   <a href="https://github.com/dotnetcore/CAP/edit/master/docs/content/user-guide/zh/cap/idempotence.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="idempotence">Idempotence<a class="headerlink" href="#idempotence" title="Permanent link">&para;</a></h1>
-<p>幂等性（你可以在<a href="https://en.wikipedia.org/wiki/Idempotence">Wikipedia</a>读到关于幂等性的定义），当我们谈论幂等时，一般是指可以重复处理传毒的消息，而不是产生意外的结果。</p>
-<h2 id="_1">交付保证<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+                <h1 id="_1">幂等性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>幂等性（你可以在<a href="https://en.wikipedia.org/wiki/Idempotence">Wikipedia</a>读到关于幂等性的定义），当我们谈论幂等时，一般是指可以重复处理传递的消息，而不会产生意外的结果。</p>
+<h2 id="_2">交付保证<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在说幂等性之前，我们先来说下关于消费端的消息交付。</p>
-<p>由于CAP不是使用的 MS DTC 或其他类型的2PC分布式事务机制，所以存在至少消息严格交付一次的问题，具体的说在基于消息的系统中，存在一下三种可能：</p>
+<p>由于CAP不是使用的 MS DTC 或其他类型的2PC分布式事务机制，所以存在至少消息严格交付一次的问题，具体的说在基于消息的系统中，存在以下三种可能：</p>
 <ul>
 <li>Exactly Once(*) （仅有一次）</li>
 <li>At Most Once （最多一次）</li>
@@ -1594,7 +1594,7 @@
 </pre></div>
 
 <p>当出现失败或者抢占消息超时的时候，我们总是能够再次接收到消息以保证我们工作事务提交成功。</p>
-<h3 id="_2">什么是 “工作事务” ?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">什么是 “工作事务” ?<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>上面所说的“工作事务”并不是特指关系型数据库中的事务，这里的工作事务是一个概念，也就是说执行代码的原子性。</p>
 <p>比如它可以是传统的RDMS事务，也或者是 MongoDB 事务或者是一个交易等。</p>
 <p>在这里它代表一个执行单元，这个执行单元是一个概念性的事实以支持前面提到的仅交付一次的这种问题。</p>
@@ -1602,7 +1602,7 @@
 <h2 id="cap">CAP 中的幂等性<a class="headerlink" href="#cap" title="Permanent link">&para;</a></h2>
 <p>在CAP中，我们采用的交付保证为 At Least Once。</p>
 <p>由于我们具有临时存储介质（数据库表），也许可以做到 At Most Once, 但是为了严格保证消息不会丢失，我们没有提供相关功能或配置。</p>
-<h3 id="_3">为什么没有实现幂等？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">为什么没有实现幂等？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>1、消息写入成功了，但是此时执行Consumer方法失败了</p>
 <p>执行Consumer方法失败的原因有非常多，我如果不知道具体的场景盲目进行重试或者不进行重试都是不正确的选择。
 举个例子：假如消费者为扣款服务，如果是执行扣款成功了，但是在写扣款日志的时候失败了，此时CAP会判断为消费者执行失败，进行重试。如果客户端自己没有保证幂等性，框架对其进行重试，这里势必会造成多次扣款出现严重后果。</p>
@@ -1613,10 +1613,10 @@
 <p>4、业界做法</p>
 <p>许多基于事件驱动的框架都是要求 用户 来保证幂等性操作的，比如 ENode, RocketMQ 等等...</p>
 <p>从实现的角度来说，CAP可以做一些比较不严格的幂等，但是严格的幂等无法做到的。</p>
-<h3 id="_4">以自然的方式处理幂等消息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_5">以自然的方式处理幂等消息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>通常情况下，保证消息被执行多次而不会产生意外结果是很自然的一种方式是采用操作对象自带的一些幂等功能。比如：</p>
 <p>数据库提供的 <code class="codehilite">INSERT ON DUPLICATE KEY UPDATE</code> 或者是采取类型的程序判断行为。</p>
-<h3 id="_5">显式处理幂等消息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_6">显式处理幂等消息<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>另外一种处理幂等性的方式就是在消息传递的过程中传递ID，然后由单独的消息跟踪器来处理。 </p>
 <p>比如你使用具有事务数据存储的 IMessageTracker 来跟踪消息ID，你的代码可能看起来像这样：</p>
 <div class="codehilite"><pre><span></span><span class="k">readonly</span> <span class="n">IMessageTracker</span> <span class="n">_messageTracker</span><span class="p">;</span>

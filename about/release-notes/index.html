@@ -1345,6 +1345,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-251-2019-06-21" title="Version 2.5.1 (2019-06-21)" class="md-nav__link">
+    Version 2.5.1 (2019-06-21)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-250-2019-03-30" title="Version 2.5.0 (2019-03-30)" class="md-nav__link">
     Version 2.5.0 (2019-03-30)
   </a>
@@ -1554,6 +1561,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-251-2019-06-21" title="Version 2.5.1 (2019-06-21)" class="md-nav__link">
+    Version 2.5.1 (2019-06-21)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-250-2019-03-30" title="Version 2.5.0 (2019-03-30)" class="md-nav__link">
     Version 2.5.0 (2019-03-30)
   </a>
@@ -1734,6 +1748,24 @@
                 
                 
                 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="version-251-2019-06-21">Version 2.5.1 (2019-06-21)<a class="headerlink" href="#version-251-2019-06-21" title="Permanent link">&para;</a></h2>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Improved logs record.</li>
+<li>Upgrade dependent nuget packages version. (MySqlConnector, confluent-kafka-dotnet-1.0 )</li>
+<li>NodeId type change to string of DiscoveryOptions for Consul. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/314" title="GitHub Issue: dotnetcore/cap#314">#314</a>)</li>
+<li>Change the IConsumerServiceSelector interface access modifier to public. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/333" title="GitHub Issue: dotnetcore/cap#333">#333</a>)</li>
+<li>Improved RabbitMQOptions to provide extensions option to configure the client original configuration. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/350" title="GitHub Issue: dotnetcore/cap#350">#350</a>)</li>
+<li>Add index for MongoDB CAP collections. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/353" title="GitHub Issue: dotnetcore/cap#353">#353</a>)</li>
+</ul>
+<p><strong>Bugs Fixed:</strong></p>
+<ul>
+<li>Fixed consumer re-register transport bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/329" title="GitHub Issue: dotnetcore/cap#329">#329</a>)</li>
+<li>Handle messages retrieval failure. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/324" title="GitHub Issue: dotnetcore/cap#324">#324</a>)</li>
+<li>Fixed DiagnosticListener  null reference exception bug. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/335" title="GitHub Issue: dotnetcore/cap#335">#335</a>)</li>
+<li>Add subscription name validation for the AzureServerBus. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/344" title="GitHub Issue: dotnetcore/cap#344">#344</a>)</li>
+<li>Fixed thread safety issues of publisher. (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/dotnetcore/cap/issues/331" title="GitHub Issue: dotnetcore/cap#331">#331</a>)</li>
+</ul>
 <h2 id="version-250-2019-03-30">Version 2.5.0 (2019-03-30)<a class="headerlink" href="#version-250-2019-03-30" title="Permanent link">&para;</a></h2>
 <p><strong>Features:</strong></p>
 <ul>
