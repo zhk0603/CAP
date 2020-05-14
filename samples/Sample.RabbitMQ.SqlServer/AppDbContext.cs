@@ -28,13 +28,10 @@ namespace Sample.RabbitMQ.SqlServer
 
     public class AppDbContext : DbContext
     {
-        public const string ConnectionString = "Server=192.168.2.120;Database=captest;User Id=sa;Password=P@ssw0rd;";
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
 
         public DbSet<Person> Persons { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionString);
-        }
     }
 }

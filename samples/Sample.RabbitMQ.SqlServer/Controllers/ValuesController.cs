@@ -5,6 +5,7 @@ using Dapper;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace Sample.RabbitMQ.SqlServer.Controllers
 {
@@ -12,10 +13,12 @@ namespace Sample.RabbitMQ.SqlServer.Controllers
     public class ValuesController : Controller
     {
         private readonly ICapPublisher _capBus;
+        private readonly IConfiguration _configuration;
 
-        public ValuesController(ICapPublisher capPublisher)
+        public ValuesController(ICapPublisher capPublisher,IConfiguration configuration)
         {
             _capBus = capPublisher;
+            _configuration = configuration;
         }
 
         [Route("~/without/transaction")]
@@ -33,7 +36,7 @@ namespace Sample.RabbitMQ.SqlServer.Controllers
         [Route("~/adonet/transaction")]
         public IActionResult AdonetWithTransaction()
         {
-            using (var connection = new SqlConnection(AppDbContext.ConnectionString))
+            using (var connection = new SqlConnection(_configuration["DefaultConnectionString"]))
             {
                 using (var transaction = connection.BeginTransaction(_capBus, true))
                 {
@@ -53,7 +56,7 @@ namespace Sample.RabbitMQ.SqlServer.Controllers
             using (dbContext.Database.BeginTransaction(_capBus, autoCommit: true))
             {
                 dbContext.Persons.Add(new Person() { Name = "ef.transaction" });
-
+                dbContext.SaveChanges();
                 _capBus.Publish("sample.rabbitmq.mysql", DateTime.Now);
             }
             return Ok();
@@ -64,6 +67,13 @@ namespace Sample.RabbitMQ.SqlServer.Controllers
         public void Subscriber(DateTime p)
         {
             Console.WriteLine($@"{DateTime.Now} Subscriber invoked, Info: {p}");
+        }
+
+        [NonAction]
+        [CapSubscribe("sample.rabbitmq.mysql")]
+        public void Subscriberv3(DateTime p)
+        {
+            Console.WriteLine($@"V3 {DateTime.Now} Subscriber invoked, Info: {p}");
         }
 
         [NonAction]
